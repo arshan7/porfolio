@@ -1,0 +1,38 @@
+<ng-container *ngIf="ToggleObj">
+  <section>
+    <a
+      class="flex items-center cursor-pointer"
+      (click)="toggle()"
+      *ngIf="parentOpen"
+    >
+      <mat-icon
+        class="mat-icon-override"
+        *ngIf="!isOpen"
+        aria-hidden="false"
+        fontIcon="chevron_right"
+      ></mat-icon>
+      <mat-icon
+        *ngIf="isOpen"
+        aria-hidden="false"
+        fontIcon="expand_more"
+      ></mat-icon>
+      <span>{{ ToggleObj | getFirstKey }}</span>
+    </a>
+    <ng-container *ngFor="let linkItem of transformed">
+      <ng-container *ngIf="linkItem | isObject">
+        <app-toggle
+          [ToggleObj]="linkItem"
+          *ngIf="parentOpen"
+          [parentOpen]="isOpen"
+        ></app-toggle>
+      </ng-container>
+      <ng-container *ngIf="!(linkItem | isObject)">
+        <div class="ml-4" *ngIf="isOpen && parentOpen">
+          <div class="ml-2">
+            <a class="block link cursor-pointer">{{ linkItem }}</a>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </section>
+</ng-container>

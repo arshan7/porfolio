@@ -1,0 +1,82 @@
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.side-nav {
+  font-family: "Arial", sans-serif;
+  background-color: #ffffff;
+  color: #333333;
+  width: 250px;
+  height: 100%;
+  padding-top: 20px;
+
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 15px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+a {
+  text-decoration: none;
+  color: #333333;
+  display: block;
+}
+
+li:hover {
+  background-color: #f0f0f0;
+}
+
+.active {
+  background-color: #e0e0e0;
+}
+
+ul ul {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background-color: #ffffff;
+  width: 250px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+ul li:hover > ul {
+  display: block;
+}
+
+.tab {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  color: #062466;
+  font-size: 16px; /* Adjust the font size as desired */
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
+}
+
+.tabs {
+  /* Your styles for the tabs section */
+  /* For example, to ensure it's below the main content and on a new line */
+  clear: both;
+  margin-top: 20px; /* Adjust as needed */
+  margin-left: 300px;
+}

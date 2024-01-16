@@ -1,0 +1,4354 @@
+<div class="grid grid-cols-[300px_1fr] grid-rows-[60px_auto]">
+  <div class="tabs col-span-2">
+    <button
+      class="tab"
+      [ngClass]="{ active: isJobOverviewActive }"
+      style="cursor: pointer"
+      (click)="setActiveContent('jobOverview')"
+    >
+      System Design Fundamentals</button
+    >    <span class="separator">|</span>
+    <button
+      class="tab"
+      [ngClass]="{ active: isJobReportActive }"
+      style="cursor: pointer"
+      (click)="setActiveContent('jobReport')"
+    >
+      Code-Deployment System</button
+    >    <span class="separator">|</span>
+    <button
+      class="tab"
+      [ngClass]="{ active: isJobsActive }"
+      style="cursor: pointer"
+      (click)="setActiveContent('jobs')"
+    >
+      E-learning
+    </button>
+        <span class="separator">|</span>
+    <button
+      class="tab"
+      [ngClass]="{ active: isAgedIncidents }"
+      style="cursor: pointer"
+      (click)="setActiveContent('AgedIncidents')"
+    >
+      Stock Broker</button
+    >    <span class="separator">|</span>
+    <button
+      class="tab"
+      [ngClass]="{ active: isUnclosedChangeTickets }"
+      style="cursor: pointer"
+      (click)="setActiveContent('UnclosedChangeTickets')"
+    >
+      E-commerece
+    </button>
+
+    <hr style="display: flex;  border-bottom: 2px #062466" />
+  </div>
+  <div class="side-bar">
+    <app-side-nav
+      [yamlPath]="'/assets/content/yaml/SystemDesign/system-design.yaml'"
+    ></app-side-nav>
+  </div>
+
+  <div class="container">
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <title>System Design Fundamentals</title>
+      <style>
+        /* cspell:disable-file */
+        /* webkit printing magic: print all background colors */
+        html {
+          -webkit-print-color-adjust: exact;
+        }
+        * {
+          box-sizing: border-box;
+          -webkit-print-color-adjust: exact;
+        }
+
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        @media only screen {
+          body {
+            max-width: 1500px;
+            color: rgb(55, 53, 47);
+          }
+        }
+
+        body {
+          line-height: 1.5;
+          white-space: pre-wrap;
+        }
+
+        a,
+        a.visited {
+          color: inherit;
+          text-decoration: underline;
+        }
+
+        .pdf-relative-link-path {
+          font-size: 80%;
+          color: #444;
+        }
+
+        h1,
+        h2,
+        h3 {
+          letter-spacing: -0.01em;
+          line-height: 1.2;
+          font-weight: 600;
+          margin-bottom: 0;
+        }
+
+        .page-title {
+          font-size: 2.5rem;
+          font-weight: 700;
+          margin-top: 0;
+          margin-bottom: 0.75em;
+        }
+
+        h1 {
+          font-size: 1.875rem;
+          margin-top: 1.875rem;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+          margin-top: 1.5rem;
+        }
+
+        h3 {
+          font-size: 1.25rem;
+          margin-top: 1.25rem;
+        }
+
+        .source {
+          border: 1px solid #ddd;
+          border-radius: 3px;
+          padding: 1.5em;
+          word-break: break-all;
+        }
+
+        .callout {
+          border-radius: 3px;
+          padding: 1rem;
+        }
+
+        figure {
+          margin: 1.25em 0;
+          page-break-inside: avoid;
+        }
+
+        figcaption {
+          opacity: 0.5;
+          font-size: 85%;
+          margin-top: 0.5em;
+        }
+
+        mark {
+          background-color: transparent;
+        }
+
+        .indented {
+          padding-left: 1.5em;
+        }
+
+        img {
+          max-width: 100%;
+        }
+
+        @media only print {
+          img {
+            max-height: 100vh;
+            object-fit: contain;
+          }
+        }
+
+        @page {
+          margin: 1in;
+        }
+
+        .collection-content {
+          font-size: 0.875rem;
+        }
+
+        .column-list {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .column {
+          padding: 0 1em;
+        }
+
+        .column:first-child {
+          padding-left: 0;
+        }
+
+        .column:last-child {
+          padding-right: 0;
+        }
+
+        .table_of_contents-item {
+          display: block;
+          font-size: 0.875rem;
+          line-height: 1.3;
+          padding: 0.125rem;
+        }
+
+        .table_of_contents-indent-1 {
+          margin-left: 1.5rem;
+        }
+
+        .table_of_contents-indent-2 {
+          margin-left: 3rem;
+        }
+
+        .table_of_contents-indent-3 {
+          margin-left: 4.5rem;
+        }
+
+        .table_of_contents-link {
+          text-decoration: none;
+          opacity: 0.7;
+          border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+        }
+
+        table,
+        th,
+        td {
+          border: 1px solid rgba(55, 53, 47, 0.09);
+          border-collapse: collapse;
+        }
+
+        table {
+          border-left: none;
+          border-right: none;
+        }
+
+        th,
+        td {
+          font-weight: normal;
+          padding: 0.25em 0.5em;
+          line-height: 1.5;
+          min-height: 1.5em;
+          text-align: left;
+        }
+
+        th {
+          color: rgba(55, 53, 47, 0.6);
+        }
+
+        ol,
+        ul {
+          margin: 0;
+          margin-block-start: 0.6em;
+          margin-block-end: 0.6em;
+        }
+
+        li > ol:first-child,
+        li > ul:first-child {
+          margin-block-start: 0.6em;
+        }
+
+        ul > li {
+          list-style: disc;
+        }
+
+        ul.to-do-list {
+          padding-inline-start: 0;
+        }
+
+        ul.to-do-list > li {
+          list-style: none;
+        }
+
+        .to-do-children-checked {
+          text-decoration: line-through;
+          opacity: 0.375;
+        }
+
+        ul.toggle > li {
+          list-style: none;
+        }
+
+        ul {
+          padding-inline-start: 1.7em;
+        }
+
+        ul > li {
+          padding-left: 0.1em;
+        }
+
+        ol {
+          padding-inline-start: 1.6em;
+        }
+
+        ol > li {
+          padding-left: 0.2em;
+        }
+
+        .mono ol {
+          padding-inline-start: 2em;
+        }
+
+        .mono ol > li {
+          text-indent: -0.4em;
+        }
+
+        .toggle {
+          padding-inline-start: 0em;
+          list-style-type: none;
+        }
+
+        /* Indent toggle children */
+        .toggle > li > details {
+          padding-left: 1.7em;
+        }
+
+        .toggle > li > details > summary {
+          margin-left: -1.1em;
+        }
+
+        .selected-value {
+          display: inline-block;
+          padding: 0 0.5em;
+          background: rgba(206, 205, 202, 0.5);
+          border-radius: 3px;
+          margin-right: 0.5em;
+          margin-top: 0.3em;
+          margin-bottom: 0.3em;
+          white-space: nowrap;
+        }
+
+        .collection-title {
+          display: inline-block;
+          margin-right: 1em;
+        }
+
+        .page-description {
+          margin-bottom: 2em;
+        }
+
+        .simple-table {
+          margin-top: 1em;
+          font-size: 0.875rem;
+          empty-cells: show;
+        }
+        .simple-table td {
+          height: 29px;
+          min-width: 120px;
+        }
+
+        .simple-table th {
+          height: 29px;
+          min-width: 120px;
+        }
+
+        .simple-table-header-color {
+          background: rgb(247, 246, 243);
+          color: black;
+        }
+        .simple-table-header {
+          font-weight: 500;
+        }
+
+        time {
+          opacity: 0.5;
+        }
+
+        .icon {
+          display: inline-block;
+          max-width: 1.2em;
+          max-height: 1.2em;
+          text-decoration: none;
+          vertical-align: text-bottom;
+          margin-right: 0.5em;
+        }
+
+        img.icon {
+          border-radius: 3px;
+        }
+
+        .user-icon {
+          width: 1.5em;
+          height: 1.5em;
+          border-radius: 100%;
+          margin-right: 0.5rem;
+        }
+
+        .user-icon-inner {
+          font-size: 0.8em;
+        }
+
+        .text-icon {
+          border: 1px solid #000;
+          text-align: center;
+        }
+
+        .page-cover-image {
+          display: block;
+          object-fit: cover;
+          width: 100%;
+          max-height: 30vh;
+        }
+
+        .page-header-icon {
+          font-size: 3rem;
+          margin-bottom: 1rem;
+        }
+
+        .page-header-icon-with-cover {
+          margin-top: -0.72em;
+          margin-left: 0.07em;
+        }
+
+        .page-header-icon img {
+          border-radius: 3px;
+        }
+
+        .link-to-page {
+          margin: 1em 0;
+          padding: 0;
+          border: none;
+          font-weight: 500;
+        }
+
+        p > .user {
+          padding: 0.25em 0.5em;
+          line-height: 0.5;
+          min-height: 0.2em;
+          text-align: left;
+          font-weight: normal;
+        }
+
+        td > .user,
+        td > time {
+          white-space: nowrap;
+        }
+
+        input[type="checkbox"] {
+          transform: scale(1.5);
+          margin-right: 0.6em;
+          vertical-align: middle;
+        }
+
+        p {
+          margin-top: 0.5em;
+          margin-bottom: 0.5em;
+        }
+
+        .image {
+          border: none;
+          margin: 1.5em 0;
+          padding: 0;
+          border-radius: 0;
+          text-align: center;
+        }
+
+        .code,
+        code {
+          background: rgba(135, 131, 120, 0.15);
+          border-radius: 3px;
+          padding: 0.2em 0.4em;
+          border-radius: 3px;
+          font-size: 85%;
+          tab-size: 2;
+        }
+
+        code {
+          color: #eb5757;
+        }
+
+        .code {
+          padding: 1.5em 1em;
+        }
+
+        .code-wrap {
+          white-space: pre-wrap;
+          word-break: break-all;
+        }
+
+        .code > code {
+          background: none;
+          padding: 0;
+          font-size: 100%;
+          color: inherit;
+        }
+
+        blockquote {
+          font-size: 1.25em;
+          margin: 1em 0;
+          padding-left: 1em;
+          border-left: 3px solid rgb(55, 53, 47);
+        }
+
+        .bookmark {
+          text-decoration: none;
+          max-height: 8em;
+          padding: 0;
+          display: flex;
+          width: 100%;
+          align-items: stretch;
+        }
+
+        .bookmark-title {
+          font-size: 0.85em;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          height: 1.75em;
+          white-space: nowrap;
+        }
+
+        .bookmark-text {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .bookmark-info {
+          flex: 4 1 180px;
+          padding: 12px 14px 14px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .bookmark-image {
+          width: 33%;
+          flex: 1 1 180px;
+          display: block;
+          position: relative;
+          object-fit: cover;
+          border-radius: 1px;
+        }
+
+        .bookmark-description {
+          color: rgba(55, 53, 47, 0.6);
+          font-size: 0.75em;
+          overflow: hidden;
+          max-height: 4.5em;
+          word-break: break-word;
+        }
+
+        .bookmark-href {
+          font-size: 0.75em;
+          margin-top: 0.25em;
+        }
+
+        .sans {
+          font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont,
+            "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif,
+            "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+        .code {
+          font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono",
+            "Liberation Mono", Courier, monospace;
+        }
+        .serif {
+          font-family: Lyon-Text, Georgia, ui-serif, serif;
+        }
+        .mono {
+          font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+        }
+        .pdf .sans {
+          font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+            "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif,
+            "Segoe UI Emoji", "Segoe UI Symbol", "Twemoji", "Noto Color Emoji",
+            "Noto Sans CJK JP";
+        }
+        .pdf:lang(zh-CN) .sans {
+          font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+            "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif,
+            "Segoe UI Emoji", "Segoe UI Symbol", "Twemoji", "Noto Color Emoji",
+            "Noto Sans CJK SC";
+        }
+        .pdf:lang(zh-TW) .sans {
+          font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+            "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif,
+            "Segoe UI Emoji", "Segoe UI Symbol", "Twemoji", "Noto Color Emoji",
+            "Noto Sans CJK TC";
+        }
+        .pdf:lang(ko-KR) .sans {
+          font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont,
+            "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif,
+            "Segoe UI Emoji", "Segoe UI Symbol", "Twemoji", "Noto Color Emoji",
+            "Noto Sans CJK KR";
+        }
+        .pdf .code {
+          font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas,
+            "PT Mono", "Liberation Mono", Courier, monospace, "Twemoji",
+            "Noto Color Emoji", "Noto Sans Mono CJK JP";
+        }
+        .pdf:lang(zh-CN) .code {
+          font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas,
+            "PT Mono", "Liberation Mono", Courier, monospace, "Twemoji",
+            "Noto Color Emoji", "Noto Sans Mono CJK SC";
+        }
+        .pdf:lang(zh-TW) .code {
+          font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas,
+            "PT Mono", "Liberation Mono", Courier, monospace, "Twemoji",
+            "Noto Color Emoji", "Noto Sans Mono CJK TC";
+        }
+        .pdf:lang(ko-KR) .code {
+          font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas,
+            "PT Mono", "Liberation Mono", Courier, monospace, "Twemoji",
+            "Noto Color Emoji", "Noto Sans Mono CJK KR";
+        }
+        .pdf .serif {
+          font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, "Twemoji",
+            "Noto Color Emoji", "Noto Serif CJK JP";
+        }
+        .pdf:lang(zh-CN) .serif {
+          font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, "Twemoji",
+            "Noto Color Emoji", "Noto Serif CJK SC";
+        }
+        .pdf:lang(zh-TW) .serif {
+          font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, "Twemoji",
+            "Noto Color Emoji", "Noto Serif CJK TC";
+        }
+        .pdf:lang(ko-KR) .serif {
+          font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, "Twemoji",
+            "Noto Color Emoji", "Noto Serif CJK KR";
+        }
+        .pdf .mono {
+          font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+            "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK JP";
+        }
+        .pdf:lang(zh-CN) .mono {
+          font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+            "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK SC";
+        }
+        .pdf:lang(zh-TW) .mono {
+          font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+            "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK TC";
+        }
+        .pdf:lang(ko-KR) .mono {
+          font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace,
+            "Twemoji", "Noto Color Emoji", "Noto Sans Mono CJK KR";
+        }
+        .highlight-default {
+          color: rgba(55, 53, 47, 1);
+        }
+        .highlight-gray {
+          color: rgba(120, 119, 116, 1);
+          fill: rgba(120, 119, 116, 1);
+        }
+        .highlight-brown {
+          color: rgba(159, 107, 83, 1);
+          fill: rgba(159, 107, 83, 1);
+        }
+        .highlight-orange {
+          color: rgba(217, 115, 13, 1);
+          fill: rgba(217, 115, 13, 1);
+        }
+        .highlight-yellow {
+          color: rgba(203, 145, 47, 1);
+          fill: rgba(203, 145, 47, 1);
+        }
+        .highlight-teal {
+          color: rgba(68, 131, 97, 1);
+          fill: rgba(68, 131, 97, 1);
+        }
+        .highlight-blue {
+          color: rgba(51, 126, 169, 1);
+          fill: rgba(51, 126, 169, 1);
+        }
+        .highlight-purple {
+          color: rgba(144, 101, 176, 1);
+          fill: rgba(144, 101, 176, 1);
+        }
+        .highlight-pink {
+          color: rgba(193, 76, 138, 1);
+          fill: rgba(193, 76, 138, 1);
+        }
+        .highlight-red {
+          color: rgba(212, 76, 71, 1);
+          fill: rgba(212, 76, 71, 1);
+        }
+        .highlight-gray_background {
+          background: rgba(241, 241, 239, 1);
+        }
+        .highlight-brown_background {
+          background: rgba(244, 238, 238, 1);
+        }
+        .highlight-orange_background {
+          background: rgba(251, 236, 221, 1);
+        }
+        .highlight-yellow_background {
+          background: rgba(251, 243, 219, 1);
+        }
+        .highlight-teal_background {
+          background: rgba(237, 243, 236, 1);
+        }
+        .highlight-blue_background {
+          background: rgba(231, 243, 248, 1);
+        }
+        .highlight-purple_background {
+          background: rgba(244, 240, 247, 0.8);
+        }
+        .highlight-pink_background {
+          background: rgba(249, 238, 243, 0.8);
+        }
+        .highlight-red_background {
+          background: rgba(253, 235, 236, 1);
+        }
+        .block-color-default {
+          color: inherit;
+          fill: inherit;
+        }
+        .block-color-gray {
+          color: rgba(120, 119, 116, 1);
+          fill: rgba(120, 119, 116, 1);
+        }
+        .block-color-brown {
+          color: rgba(159, 107, 83, 1);
+          fill: rgba(159, 107, 83, 1);
+        }
+        .block-color-orange {
+          color: rgba(217, 115, 13, 1);
+          fill: rgba(217, 115, 13, 1);
+        }
+        .block-color-yellow {
+          color: rgba(203, 145, 47, 1);
+          fill: rgba(203, 145, 47, 1);
+        }
+        .block-color-teal {
+          color: rgba(68, 131, 97, 1);
+          fill: rgba(68, 131, 97, 1);
+        }
+        .block-color-blue {
+          color: rgba(51, 126, 169, 1);
+          fill: rgba(51, 126, 169, 1);
+        }
+        .block-color-purple {
+          color: rgba(144, 101, 176, 1);
+          fill: rgba(144, 101, 176, 1);
+        }
+        .block-color-pink {
+          color: rgba(193, 76, 138, 1);
+          fill: rgba(193, 76, 138, 1);
+        }
+        .block-color-red {
+          color: rgba(212, 76, 71, 1);
+          fill: rgba(212, 76, 71, 1);
+        }
+        .block-color-gray_background {
+          background: rgba(241, 241, 239, 1);
+        }
+        .block-color-brown_background {
+          background: rgba(244, 238, 238, 1);
+        }
+        .block-color-orange_background {
+          background: rgba(251, 236, 221, 1);
+        }
+        .block-color-yellow_background {
+          background: rgba(251, 243, 219, 1);
+        }
+        .block-color-teal_background {
+          background: rgba(237, 243, 236, 1);
+        }
+        .block-color-blue_background {
+          background: rgba(231, 243, 248, 1);
+        }
+        .block-color-purple_background {
+          background: rgba(244, 240, 247, 0.8);
+        }
+        .block-color-pink_background {
+          background: rgba(249, 238, 243, 0.8);
+        }
+        .block-color-red_background {
+          background: rgba(253, 235, 236, 1);
+        }
+        .select-value-color-uiBlue {
+          background-color: rgba(35, 131, 226, 0.07);
+        }
+        .select-value-color-pink {
+          background-color: rgba(245, 224, 233, 1);
+        }
+        .select-value-color-purple {
+          background-color: rgba(232, 222, 238, 1);
+        }
+        .select-value-color-green {
+          background-color: rgba(219, 237, 219, 1);
+        }
+        .select-value-color-gray {
+          background-color: rgba(227, 226, 224, 1);
+        }
+        .select-value-color-translucentGray {
+          background-color: rgba(255, 255, 255, 0.0375);
+        }
+        .select-value-color-orange {
+          background-color: rgba(250, 222, 201, 1);
+        }
+        .select-value-color-brown {
+          background-color: rgba(238, 224, 218, 1);
+        }
+        .select-value-color-red {
+          background-color: rgba(255, 226, 221, 1);
+        }
+        .select-value-color-yellow {
+          background-color: rgba(253, 236, 200, 1);
+        }
+        .select-value-color-blue {
+          background-color: rgba(211, 229, 239, 1);
+        }
+        .select-value-color-pageGlass {
+          background-color: undefined;
+        }
+        .select-value-color-washGlass {
+          background-color: undefined;
+        }
+
+        .checkbox {
+          display: inline-flex;
+          vertical-align: text-bottom;
+          width: 16;
+          height: 16;
+          background-size: 16px;
+          margin-left: 2px;
+          margin-right: 5px;
+        }
+        Foundational System Design .checkbox-on {
+          background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+        }
+
+        .checkbox-off {
+          background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+        }
+      </style>
+    </head>
+    <body>
+      <article id="718feee2-dfb6-4b85-b4a9-963484ffe711" class="page sans">
+        <header>
+          <img
+            class="page-cover-image"
+            src="https://www.notion.so/images/page-cover/nasa_ibm_type_704.jpg"
+            style="object-position: center 19.999999999999996%"
+          />
+          <h1 class="page-title">System Design Fundamentals</h1>
+          <p class="page-description"></p>
+        </header>
+        <div class="page-body">
+          <h2 id="899304b1-1f78-4e24-acb7-ea0db3f24e13" class="">
+            <mark class="highlight-teal">Fundamentals</mark>
+          </h2>
+          <table id="1e076bd2-860d-46ac-a3d8-f5ccbc2a2b49" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="55707314-736f-441b-9ede-e6703c8739e0">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                >
+                  <mark class="highlight-blue">Category</mark>
+                </th>
+                <th
+                  id="zixN"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 204.96875px"
+                >
+                  <mark class="highlight-blue">Topics</mark>
+                </th>
+                <th
+                  id="a^V^"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 527px"
+                >
+                  <mark class="highlight-blue">Components/Terms</mark>
+                </th>
+                <th
+                  id="[qtL"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 526px"
+                >
+                  <mark class="highlight-blue">Actual Tech</mark>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="8e25cad5-561a-4a82-b43c-032d376e7d54">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                >
+                  <mark class="highlight-blue">Foundational System Design</mark>
+                </th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  Client-Server Model
+                </td>
+                <td id="a^V^" class="" style="width: 527px">
+                  IP Address, Port, DNS
+                </td>
+                <td id="[qtL" class="" style="width: 526px">-</td>
+              </tr>
+              <tr id="42ed1177-4196-4a39-ac09-de9a51cf1dc9">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  Network Protocols
+                </td>
+                <td id="a^V^" class="" style="width: 527px">
+                  IP, TCP, HTTP, HTTPS
+                </td>
+                <td id="[qtL" class="" style="width: 526px">Rest APIs</td>
+              </tr>
+              <tr id="556f66b8-4821-45e9-823c-4ad1a2c6074b">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">Security</td>
+                <td id="a^V^" class="" style="width: 527px">
+                  Man-In-The-Middle Attack, Encryption (symmetric(AES),
+                  Asymmetric), TLS Handshake, SSL Certificate, Certificate
+                  Authority
+                </td>
+                <td id="[qtL" class="" style="width: 526px">HTTPS</td>
+              </tr>
+              <tr id="cde20679-86e7-40e9-b707-4299aa936f16">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  Peer-to-Peer Network
+                </td>
+                <td id="a^V^" class="" style="width: 527px">Gossip Protocol</td>
+                <td id="[qtL" class="" style="width: 526px">-</td>
+              </tr>
+              <tr id="0362b1f9-d81a-40a1-b781-a6953fad4eb3">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">Storage</td>
+                <td id="a^V^" class="" style="width: 527px">
+                  In-memory, Persistence, Cache, Database (Persistence only)
+                </td>
+                <td id="[qtL" class="" style="width: 526px">Disk, RAM</td>
+              </tr>
+              <tr id="73de3087-b6f4-4f9b-87d4-9bae20fbb998">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  Relational
+                </td>
+                <td id="a^V^" class="" style="width: 527px">
+                  SQL, NoSQL, ACID Transaction, Strong Consistency, Eventual
+                  Consistency, Indexing (Auxiliary Data Structures, Different
+                  Types of Indexes)
+                </td>
+                <td id="[qtL" class="" style="width: 526px">
+                  Zookeeper, XCD, Reddits, S3, GCS
+                </td>
+              </tr>
+              <tr id="b8298761-686f-409d-ad7b-de2846164bf7">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  Blob Storage
+                </td>
+                <td id="a^V^" class="" style="width: 527px">-</td>
+                <td id="[qtL" class="" style="width: 526px">GCS, S3</td>
+              </tr>
+              <tr id="af47bf09-946a-4231-bf4c-63f2b88c9766">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  Key-Value Store
+                </td>
+                <td id="a^V^" class="" style="width: 527px">-</td>
+                <td id="[qtL" class="" style="width: 526px">
+                  Redis, Etcd, Zookeeper
+                </td>
+              </tr>
+              <tr id="aaa7b654-7600-4ca9-bbe5-a084269d79d7">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  Time Series Database
+                </td>
+                <td id="a^V^" class="" style="width: 527px">-</td>
+                <td id="[qtL" class="" style="width: 526px">
+                  InfluxDB, Prometheus
+                </td>
+              </tr>
+              <tr id="d62a93a0-9f44-4e29-8014-ec9992c39bc7">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  Graph Data
+                </td>
+                <td id="a^V^" class="" style="width: 527px">Cypher</td>
+                <td id="[qtL" class="" style="width: 526px">Neo4j</td>
+              </tr>
+              <tr id="c2768e36-6ca5-4a41-a12c-daf8f566aac3">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  Spatial Database
+                </td>
+                <td id="a^V^" class="" style="width: 527px">Quadtree</td>
+                <td id="[qtL" class="" style="width: 526px">-</td>
+              </tr>
+              <tr id="2e31bbef-1741-459c-8744-9055525482cc">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">Cache</td>
+                <td id="a^V^" class="" style="width: 527px">
+                  Cache Hit, Cache Miss, Cache Eviction Policy, CDN, Redis,
+                  Write Through Cache, Write Back Cache, Data Staleness
+                </td>
+                <td id="[qtL" class="" style="width: 526px">Redis</td>
+              </tr>
+              <tr id="4ab2d3e1-6614-43ba-a915-bb426afc7ff6">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">MapReduce</td>
+                <td id="a^V^" class="" style="width: 527px">MapReduce</td>
+                <td id="[qtL" class="" style="width: 526px">Hadoop</td>
+              </tr>
+              <tr id="e701e51e-80e3-446a-86d9-2191998cf7e1">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  API Design
+                </td>
+                <td id="a^V^" class="" style="width: 527px">
+                  Entity, ACL, Pagination, CRUD Operations
+                </td>
+                <td id="[qtL" class="" style="width: 526px">-</td>
+              </tr>
+              <tr id="c194317f-3c49-4acb-bacc-c07e0872dbf8">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  Monitoring and Alerts
+                </td>
+                <td id="a^V^" class="" style="width: 527px">
+                  Logging, Monitoring, Alerts
+                </td>
+                <td id="[qtL" class="" style="width: 526px">-</td>
+              </tr>
+              <tr id="84f5e1e9-296f-442f-b508-1fe0c08d9367">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                >
+                  <mark class="highlight-blue">Key Characteristics</mark>
+                </th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  Latency and Throughput
+                </td>
+                <td id="a^V^" class="" style="width: 527px">-</td>
+                <td id="[qtL" class="" style="width: 526px"></td>
+              </tr>
+              <tr id="683b8c0c-1f54-489c-b06e-56806f6d99f5">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px"></td>
+                <td id="a^V^" class="" style="width: 527px">-</td>
+                <td id="[qtL" class="" style="width: 526px">-</td>
+              </tr>
+              <tr id="e51e8c08-4082-4047-bb8b-5764ef8a70bc">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  Throttling
+                </td>
+                <td id="a^V^" class="" style="width: 527px"></td>
+                <td id="[qtL" class="" style="width: 526px"></td>
+              </tr>
+              <tr id="cb6b4ece-35fb-45da-a6b1-7ba002fcfef7">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  Availability
+                </td>
+                <td id="a^V^" class="" style="width: 527px">
+                  High Availability, Nines, Redundancy, SLA, SLO, ZooKeeper
+                </td>
+                <td id="[qtL" class="" style="width: 526px">-</td>
+              </tr>
+              <tr id="27568138-46a0-4192-933a-0ef3099024a8">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">Proxy</td>
+                <td id="a^V^" class="" style="width: 527px">
+                  Forward Proxy, Reverse Proxy
+                </td>
+                <td id="[qtL" class="" style="width: 526px">
+                  Nginx, load balancer
+                </td>
+              </tr>
+              <tr id="08a7a080-f1ff-4d01-9522-c5bbfcf95e0b">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  Lead Election
+                </td>
+                <td id="a^V^" class="" style="width: 527px">
+                  (Consensus Algorithms: Paxos, Raft)
+                </td>
+                <td id="[qtL" class="" style="width: 526px">Etcd, Zookeeper</td>
+              </tr>
+              <tr id="4913fd3a-ab2c-4004-8565-ad808a39c755">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  Load Balancer
+                </td>
+                <td id="a^V^" class="" style="width: 527px">
+                  Server-Selection Strategy, Hot Spot
+                </td>
+                <td id="[qtL" class="" style="width: 526px">-</td>
+              </tr>
+              <tr id="ba9a0eba-173b-44fb-856b-24026b54e1cd">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  Rate Limiting
+                </td>
+                <td id="a^V^" class="" style="width: 527px">
+                  Rate Limiting, DoS Attack, DDoS Attack
+                </td>
+                <td id="[qtL" class="" style="width: 526px">-</td>
+              </tr>
+              <tr id="65715489-964a-4885-939e-bdfb6d53d580">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  Replication and Sharding
+                </td>
+                <td id="a^V^" class="" style="width: 527px">
+                  Replication, Sharding
+                </td>
+                <td id="[qtL" class="" style="width: 526px">Database</td>
+              </tr>
+              <tr id="a675014d-f452-413f-84c3-e9c77b5155a3">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  Polling and Streaming
+                </td>
+                <td id="a^V^" class="" style="width: 527px">
+                  Polling, Streaming
+                </td>
+                <td id="[qtL" class="" style="width: 526px">-</td>
+              </tr>
+              <tr id="30948c7a-9c85-4cf0-abf8-a018f447e99e">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  Publish/Subscribe Pattern
+                </td>
+                <td id="a^V^" class="" style="width: 527px">
+                  Idempotent Operation
+                </td>
+                <td id="[qtL" class="" style="width: 526px">-</td>
+              </tr>
+              <tr id="f4cd3e33-37fa-4173-aef7-1819fa34755e">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  Hashing Functions
+                </td>
+                <td id="a^V^" class="" style="width: 527px">
+                  Consistent Hashing, Rendezvous Hashing, MD5, SHA-1, BCrypt
+                </td>
+                <td id="[qtL" class="" style="width: 526px">-</td>
+              </tr>
+              <tr id="427803f8-3c30-4aa3-ae1d-346348574735">
+                <th
+                  id="THcC"
+                  class="simple-table-header-color simple-table-header"
+                ></th>
+                <td id="zixN" class="" style="width: 204.96875px">
+                  Configuration
+                </td>
+                <td id="a^V^" class="" style="width: 527px">
+                  Configuration Management
+                </td>
+                <td id="[qtL" class="" style="width: 526px">-</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="b548858f-cba9-4bff-b392-af88cd43e8ff" class=""></p>
+          <br />
+          <hr id="dd72a534-426e-480c-8153-2ecd4420e7cd" />
+          <h2 id="26152b90-3e6f-4980-abf5-d23ccff492c7" class="">
+            <mark class="highlight-teal">Client Server Model</mark>
+          </h2>
+          <h3 id="3b495925-5751-4403-a1fb-3398aa7145f8" class="">
+            <mark class="highlight-blue">Client</mark>
+          </h3>
+          <p id="1e773dae-11dd-4b65-af38-87cb788f7fce" class="">
+            A device or process that seeks data or services from a server.
+          </p>
+          <h3 id="e7c3a45f-ceee-41d8-b7e4-9868fc061830" class="">
+            <mark class="highlight-blue">Server</mark>
+          </h3>
+          <p id="dae47127-193c-47e4-8b4e-cd9f618a7109" class="">
+            A device or process that supplies data or services to a client,
+            usually by actively monitoring for incoming network requests.
+            It&#x27;s important to note that a single entity, whether a machine
+            or software, can function as both a client and a server
+            concurrently. For example, a single machine might act as a server
+            for end users while also serving as a client for a database.
+          </p>
+          <h3 id="7db91ae4-5dba-4d66-9eeb-3247468e3c39" class="">
+            <mark class="highlight-blue">Client-Server Model</mark>
+          </h3>
+          <p id="3a3eeb87-2d15-4db8-81a4-d6b11ee42858" class="">
+            The prevailing design paradigm for contemporary systems, involving
+            clients making requests for data or services from servers, and
+            servers furnishing data or services to clients.
+          </p>
+          <h3 id="9bcaa52b-086e-42ef-a3a8-f2a6c8b2bc3a" class="">
+            <mark class="highlight-blue">IP Address</mark>
+          </h3>
+          <p id="1304d514-a719-46e6-9398-55241193fa32" class="">
+            A unique identifier assigned to each machine connected to the public
+            internet. IPv4 addresses consist of four numbers separated by dots
+            (a.b.c.d), where all four numbers fall between 0 and 255. Noteworthy
+            values include:
+          </p>
+          <ul id="18b835db-fc74-463c-9791-a61d308c59b4" class="bulleted-list">
+            <li style="list-style-type: disc">
+              127.0.0.1: Referring to the local machine, also known as
+              localhost.
+            </li>
+          </ul>
+          <ul id="ba7e898b-fae9-4b9e-b002-2fefc54995ab" class="bulleted-list">
+            <li style="list-style-type: disc">
+              192.168..y: Designating the private network, such as a machine and
+              all devices on a private Wi-Fi network, commonly using the 192.168
+              prefix.
+            </li>
+          </ul>
+          <h3 id="33f26cf2-07b1-41df-86c9-330314d206c1" class="">
+            <mark class="highlight-blue">Port:</mark>
+          </h3>
+          <p id="8d9359f8-66be-43f3-bb82-4917442f01b0" class="">
+            To allow multiple programs to listen for new network connections on
+            the same machine without conflicts, they choose a port to listen on.
+            A port is a numerical value between 0 and 65,535 (216 ports in
+            total). Typically, ports 0-1023 are reserved for system ports
+            (well-known ports) and should not be used by user-level processes.
+            Some ports have predefined uses, and while memorization is not
+            always required, certain examples can be useful, such as:
+          </p>
+          <ul id="2b67010d-06a2-4ad9-b7e1-bdab129bc9c5" class="bulleted-list">
+            <li style="list-style-type: disc">22: Secure Shell</li>
+          </ul>
+          <ul id="b6eea940-36fc-4cba-94e9-8fcbd5d39f49" class="bulleted-list">
+            <li style="list-style-type: disc">53: DNS lookup</li>
+          </ul>
+          <ul id="bd127dfd-92df-4307-aad4-52728c11cb83" class="bulleted-list">
+            <li style="list-style-type: disc">80: HTTP</li>
+          </ul>
+          <ul id="9ef90c95-a6d2-49e2-bb60-de452c90f115" class="bulleted-list">
+            <li style="list-style-type: disc">443: HTTPS</li>
+          </ul>
+          <h3 id="a7c1143e-1946-4998-a2d0-bda8c338db6a" class="">
+            <mark class="highlight-blue">DNS:</mark>
+          </h3>
+          <p id="e5fadc4d-c370-42a1-aea3-8eac02acc6b2" class="">
+            An abbreviation for Domain Name System, it encompasses the entities
+            and protocols involved in translating domain names to IP addresses.
+            Typically, machines initiate a DNS query to a well-known entity
+            responsible for returning the IP address (or multiple addresses) of
+            the requested domain name in the response.
+          </p>
+          <h3 id="d35cf69d-c157-4207-98cf-557e62b771a5" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="bc32d87a-2013-4ead-82cc-a45476af72cc" class="simple-table">
+            <tbody>
+              <tr id="d4cf372c-d622-4732-94d2-98c88626b5fa">
+                <td id="hkqI" class="block-color-blue">Category</td>
+                <td
+                  id="SiIT"
+                  class="block-color-blue"
+                  style="width: 209.296875px"
+                >
+                  Topics
+                </td>
+                <td
+                  id="OWn~"
+                  class="block-color-blue"
+                  style="width: 534.484375px"
+                >
+                  Components/Terms
+                </td>
+                <td id="xS|W" class="block-color-blue" style="width: 510px">
+                  Actual Tech
+                </td>
+              </tr>
+              <tr id="0799255e-ff80-4678-a1ae-6f3b4e472582">
+                <td id="hkqI" class="">Foundational System Design</td>
+                <td id="SiIT" class="" style="width: 209.296875px">
+                  Client-Server Model
+                </td>
+                <td id="OWn~" class="" style="width: 534.484375px">
+                  Client, Server, IP Address, Port, DNS
+                </td>
+                <td id="xS|W" class="" style="width: 510px">-</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="8a8586d5-a683-4096-b204-6bcaaf78ba2d" class=""></p>
+          <hr id="a1a5f35d-12d4-49d3-88d3-7257f23ac809" />
+          <h2 id="b6a0a64e-7552-4693-9b30-dafec2048b15" class="">
+            <mark class="highlight-teal">Network Protocols</mark>
+          </h2>
+          <h3 id="bb21f990-c8cf-4bf6-b5a2-fcc0ee25e141" class="">
+            <mark class="highlight-blue">IP (Internet Protocol)</mark>
+          </h3>
+          <p id="74b94045-8a33-4c7f-b613-cea440db9a98" class="">
+            Stands for Internet Protocol. This network protocol outlines how
+            almost all machine-to-machine communications should happen in the
+            world. Other protocols like TCP, UDP and HTTP are built on top of
+            IP.
+          </p>
+          <p id="133dd861-af6e-47e4-9ae9-d7866caa2373" class="">
+            IP packet is limited to 2^16 bytes, so it is very small packet if
+            you want to send multiple data which is more than 2^16 bytes we can
+            send multiple packets, so when we send multiple packet there is no
+            guarantee for order and losing one packet may leads incorrect data.
+          </p>
+          <h3 id="5a560fb7-0ad5-40ff-8771-7b2ae759d91b" class="">
+            <mark class="highlight-blue"
+              >TCP Transmission Control Protocol</mark
+            >
+          </h3>
+          <p id="6e26c0c5-e8aa-42c6-b6f2-f28c43bb881e" class="">
+            Network protocol built on top of the Internet Protocol (IP), Allows
+            for ordered, reliable data delivery between machines over the public
+            internet by creating a connection.
+          </p>
+          <p id="ba3227d5-734e-414a-9e7a-d1b01baa76dd" class="">
+            TCP is usually implemented in the kernel, which exposes sockets to
+            applications that they can use to stream data through an open
+            connection.
+          </p>
+          <p id="55f5ac83-eb91-4f50-b321-e6b61713e2aa" class="">
+            Initially, TCP establishes a connection between the client and
+            server through a handshake. If a packet isn&#x27;t sent within a
+            designated timeframe, a timeout occurs. In summary, TCP serves as a
+            robust and functional wrapper around IP.
+          </p>
+          <h3 id="4a0bcdce-d89f-47d9-9282-d559cb830c5d" class="">
+            <mark class="highlight-blue">HTTP </mark>
+          </h3>
+          <p id="123ae0a5-b4f3-41cc-873d-3900fb215656" class="">
+            The HyperText Transfer Protocol is a very common network protocol
+            implemented on top of TCP. Clients make HTTP requests, and servers
+            respond with a response.
+          </p>
+          <p id="333ae23c-be9b-452a-9daa-3bbdeeab5fe8" class="">
+            IP and TCP is more on transmitting the data but HTTP is more on add
+            lot of business logic
+          </p>
+          <p id="cf89bfbb-fe9d-4a96-bf55-2db4f3b68e98" class="">
+            Requests typically have the following schema:
+          </p>
+          <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"
+            integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg=="
+            crossorigin="anonymous"
+            referrerPolicy="no-referrer"
+          ></script>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+            integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ=="
+            crossorigin="anonymous"
+            referrerPolicy="no-referrer"
+          />
+          <pre
+            id="dbcdc62b-0618-4a49-8168-85d787eeacaa"
+            class="code"
+          ><code class="language-YAML">host: string (example:google.com)
+    port: integer (example: 80 or 443)
+    method: string (example: GET, PUT, POST, DELETE, OPTIONS or PATCH)
+    headers: pair list (example: &quot;Content-Type&quot; =&gt; &quot;application/¡son&quot;)
+    body: opaque sequence of bytes</code></pre>
+          <p id="eba357d7-2c8d-41b4-b118-8cc0e6e405de" class="">
+            Responses typically have the following schema:
+          </p>
+          <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"
+            integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg=="
+            crossorigin="anonymous"
+            referrerPolicy="no-referrer"
+          ></script>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+            integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ=="
+            crossorigin="anonymous"
+            referrerPolicy="no-referrer"
+          />
+          <pre
+            id="19e0bda5-9317-4d75-acf1-aa3dbb1343e1"
+            class="code"
+          ><code class="language-YAML">status code: integer (example: 200, 401)
+    
+    headers: pair list (example: &quot;Content-Length&quot; = 1238)
+    
+    body: opaque sequence of bytes</code></pre>
+          <p id="0cf9eb89-76ab-4310-8acb-002ad130eba1" class=""></p>
+          <br />
+          <h3 id="e616dba7-30a2-45c0-84ea-7dbce0ca1c31" class="">
+            <mark class="highlight-blue">IP Packet</mark>
+          </h3>
+          <p id="d8af4b4b-6540-422d-8f19-f2b4235b7642" class="">
+            Sometimes more broadly referred to as just a (network) packet, an IP
+            packet is effectively the smallest unit used to describe data being
+            sent over IP, aside from bytes. An IP packet consists of:
+          </p>
+          <ul id="799f3100-380c-4c01-ae38-930e170103e2" class="bulleted-list">
+            <li style="list-style-type: disc">
+              an IP header, which contains the source and destination IP
+              addresses as well as other information related to the network.
+            </li>
+          </ul>
+          <ul id="54062bbd-682c-4f1b-8abb-4b658e9c5a4f" class="bulleted-list">
+            <li style="list-style-type: disc">
+              a payload, which is just the data being sent over the network.
+            </li>
+          </ul>
+          <h3 id="0861e3bb-2f66-444f-8007-a17776706d62" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="be7fb837-7e58-4661-a3e4-6ddb97c919ea" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="4e0cad3e-cecc-4dac-a915-4240e6c2faaf">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="dddfde01-e374-4b37-ab46-403cd857f5e6">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Foundational System Design
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">
+                  Network Protocols
+                </td>
+                <td id="mj;n" class="" style="width: 575.171875px">
+                  IP, TCP, HTTP, HTTPS
+                </td>
+                <td id="|_VV" class="" style="width: 501px">Rest APIs</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="50887533-e15d-4d9f-8bd2-faf84489b575" class=""></p>
+          <br />
+          <hr id="0f492478-1a72-4669-bacd-649c297e33b6" />
+          <h2 id="f6d79478-adc6-457a-a93e-c02580390e73" class="">
+            <mark class="highlight-teal">Security</mark>
+          </h2>
+          <h3 id="25388581-f5bf-4ae3-b006-1ef6f06d848e" class="">
+            <mark class="highlight-blue">Man-In-The-Middle Attack</mark>
+          </h3>
+          <p id="e999cef3-dd4d-4eec-8b57-0374edc3f93b" class="">
+            An attack in which the attacker intercepts a line of communication
+            that is thought to be private by its two communicating parties. If a
+            malicious actor intercepted and mutated an IP packet on its way from
+            a client to a server, that would be a man-in-the-middle attack.
+          </p>
+          <p id="d38248ab-ec96-4efd-96ae-7828ef06dcf1" class="">
+            MITM attacks are the primary threat that encryption and HTTPS aim to
+            defend against.
+          </p>
+          <h3 id="ef37c9c5-6884-4214-b344-b369b07eb0c4" class="">
+            <mark class="highlight-blue">Symmetric Encryption</mark>
+          </h3>
+          <p id="381f11e6-654a-43ba-8858-53ce926b040b" class="">
+            A type of encryption that relies on only a single key to both
+            encrypt and decrypt data. The key must be known to all parties
+            involved in communication and must therefore typically be shared
+            between the parties at one point or another.
+          </p>
+          <p id="05c9ebe0-85cf-4189-974f-abaa35206dff" class="">
+            Symmetric key algorithms tend to be faster than their asymmetric
+            counterparts.
+          </p>
+          <p id="0684d864-a433-4bf0-9a7a-0cb7c23af929" class="">
+            The most widely used symmetric key algorithms are part of the
+            Advanced Encryption Standard (AES).
+          </p>
+          <h3 id="becae92c-3bb9-460c-ae72-3acf27f0c449" class="">
+            <mark class="highlight-blue">Asymmetric Encryption </mark>
+          </h3>
+          <p id="557479a2-bed9-412e-a629-716b461b078e" class="">
+            Also known as public-key encryption, asymmetric encryption relies on
+            two keys-a public key and a private key—to encrypt and decrypt data.
+            The keys are generated using cryptographic algorithms and are
+            mathematically connected such that data encrypted with the public
+            key can only be decrypted with the private key.
+          </p>
+          <p id="635b6f0f-b36a-46f5-b145-a37498611c4a" class="">
+            While the private key must be kept secure to maintain the fidelity
+            of this encryption paradigm, the public key can be openly shared.
+          </p>
+          <p id="000837e4-4ded-4f0c-a14b-33c5e814a978" class="">
+            Asymmetric-key algorithms tend to be slower than their symmetric
+            counterparts.
+          </p>
+          <h3 id="1a6f27ac-b907-4f3e-bd27-a2321b8f0976" class="">
+            <mark class="highlight-blue">AES</mark>
+          </h3>
+          <p id="91f6c14c-3b69-4c30-859f-47121875539b" class="">
+            Stands for Advanced Encryption Standard. AES is a widely used
+            encryption standard that has three symmetric-key algorithms
+            (AES-128, AES-192, and AES-256).
+          </p>
+          <p id="a8130f1b-b57d-4152-99e9-ecf38fbe7ee2" class="">
+            Of note, AES is considered to be the gold standard&quot; in
+            encryption and is even used by the U.S. National Security Agency to
+            encrypt top secret information.
+          </p>
+          <h3 id="fd90810c-2e52-4af9-9bbb-07d86355b9be" class="">
+            <mark class="highlight-blue">HTTPS </mark>
+          </h3>
+          <p id="488e556d-bb28-4be8-b008-fe9bcdb4a754" class="">
+            The HyperText Transfer Protocol Secure is an extension of HTTP
+            that&#x27;s used for secure communication online. It requires
+            servers to have trusted certificates (usually SSL certificates) and
+            uses the Transport Layer Security (TLS), a security protocol built
+            on top of TCP, to encrypt data communicated between a client and a
+            server.
+          </p>
+          <h3 id="a8f45b9a-650d-4c2b-bef3-fb1a5bbc02a8" class="">
+            <mark class="highlight-blue">TLS </mark>
+          </h3>
+          <p id="1c792d81-dd29-4cf7-8d19-cc91001db9d9" class="">
+            The Transport Layer Security is a security protocol over which HTTP
+            runs in order to achieve secure communication online.
+          </p>
+          <p id="4ed3691e-4550-41a9-8214-3004598fb47c" class="">
+            &quot;HTTP over TLS&quot; is also known as HTTPS.
+          </p>
+          <h3 id="50de9b68-1d84-4bc1-82b1-4ac26eb1ab1e" class="">
+            <mark class="highlight-blue">SSL Certificate </mark>
+          </h3>
+          <p id="b00485e8-c63b-44fc-8723-7a7f4208ea37" class="">
+            A digital certificate granted to a server by a certificate
+            authority. Contains the server&#x27;s public key, to be used as part
+            of the TLS handshake process in an HTTPS connection.
+          </p>
+          <p id="eb095aa2-944e-483b-9199-0be6006bec0b" class="">
+            An SSL certificate effectively confirms that a public key belongs to
+            the server claiming it belongs to them. SSL certificates are a
+            crucial defense against man-in-the-middle attacks.
+          </p>
+          <h3 id="6e2ce7f6-afe0-4bfb-971d-aa054c0c183b" class="">
+            <mark class="highlight-blue">Certificate Authority </mark>
+          </h3>
+          <p id="5ce3c450-c979-4e1e-853b-6db40ed16a88" class="">
+            A trusted entity that signs digital certificates-namely, SSL
+            certificates that are relied on in HTTPS connections.
+          </p>
+          <h3 id="226c38ac-dfb3-4280-9e8e-055aa63dc8b2" class="">
+            <strong><mark class="highlight-blue">TLS Handshake:</mark></strong>
+          </h3>
+          <p id="0d1103b7-5b8b-4d71-aa2b-ae2601f704d9" class="">
+            The process through which a client and a server communicating over
+            HTTPS exchange encryption-related information and establish a secure
+            communication. The typical steps in a TLS handshake are roughly as
+            follows:
+          </p>
+          <ul id="ec3a379c-7d3f-4fcb-8245-5cedbad894f0" class="bulleted-list">
+            <li style="list-style-type: disc">
+              The client sends a client hello-a string of random bytes-to the
+              server.
+            </li>
+          </ul>
+          <ul id="dd29ff73-72be-40d1-8243-553a2ff87ff4" class="bulleted-list">
+            <li style="list-style-type: disc">
+              The server responds with a server hello-another string of random
+              bytes-as well as its SSL certificate, which contains its public
+              key.
+            </li>
+          </ul>
+          <ul id="e151fc01-2dd0-461b-ae6a-fece86ec0526" class="bulleted-list">
+            <li style="list-style-type: disc">
+              The client verifies that the certificate was issued by a
+              certificate authority and sends a premaster secret-yet another
+              string of random bytes, this time encrypted with the server&#x27;s
+              public key —to the server.
+            </li>
+          </ul>
+          <ul id="aa5b7ccb-8acb-47dc-ab55-ff9a1761c0ac" class="bulleted-list">
+            <li style="list-style-type: disc">
+              The client and the server use the client hello, the server hello,
+              and the premaster secret to then generate the same
+              symmetric-encryption session keys, to be used to encrypt and
+              decrypt all data communicated during the remainder of the
+              connection.
+            </li>
+          </ul>
+          <h3 id="2d5aa442-ed24-4752-95f5-c0164703435e" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="f5ff6062-9b47-4f53-b4b7-8ec199e8ce1e" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="bca34019-29d5-4f5c-a7a9-1ff70cb004ab">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="177820b7-0154-4e81-8a18-db558a78e691">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Foundational System Design
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">Security</td>
+                <td id="mj;n" class="" style="width: 575.171875px">
+                  Man-In-The-Middle Attack, Encryption (symmetric(AES),
+                  Asymmetric), TLS Handshake, SSL Certificate, Certificate
+                  Authority
+                </td>
+                <td id="|_VV" class="" style="width: 501px">HTTPS</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="25853785-9a4b-4761-b109-ab60a4571b08" class=""></p>
+          <br />
+          <hr id="0a25ce4c-d27a-43b2-aae3-089c933f6dcf" />
+          <h2 id="de6974e1-9c0a-4d3d-8b78-30626c99aa63" class="">
+            <mark class="highlight-teal">Peer-to-Peer Network</mark>
+          </h2>
+          <h3 id="32f7b06d-db41-4ba4-a48e-75bdbcf20d6e" class="">
+            <mark class="highlight-blue">Peer-To-Peer Network: </mark>
+          </h3>
+          <p id="e9302ec1-1b39-4db2-8d91-8a0700dc6825" class="">
+            A collection of machines referred to as peers that divide a workload
+            between themselves to presumably complete the workload faster than
+            would otherwise be possible. Peer-to-peer networks are often used in
+            file-distribution systems.
+          </p>
+          <h3 id="6ea34421-646c-45ac-baf6-5a88a9a46c69" class="">
+            <strong><mark class="highlight-blue">Gossip Protocol</mark></strong
+            ><mark class="highlight-blue"> </mark>
+          </h3>
+          <p id="589fcc82-f216-4a4d-af96-7bddb397d237" class="">
+            When a set of machines talk to each other in a uncoordinated manner
+            in a cluster to spread information through a system without
+            requiring a central source of data.
+          </p>
+          <h3 id="d5ed427d-397f-4f28-b8e6-4299c6764e18" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="4b61e6e2-a55e-413c-b29e-e7dc9189cefe" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="a79c244a-954f-4e48-a83f-e71e21d844f0">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="697f71fe-caf7-4932-b960-a31d13df275e">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Foundational System Design
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">
+                  Peer-to-Peer Network
+                </td>
+                <td id="mj;n" class="" style="width: 575.171875px">
+                  Gossip Protocol
+                </td>
+                <td id="|_VV" class="" style="width: 501px">-</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="8111b2de-6f49-419b-894c-78b15c9cf81b" class=""></p>
+          <br />
+          <hr id="e17c6776-31a2-4a9a-b804-2d33de13d395" />
+          <h2 id="79405db8-8308-43f9-ab6c-e971f7d59cec" class="">
+            <mark class="highlight-teal">Storage</mark>
+          </h2>
+          <h3 id="0ef5ad69-9e9c-43fa-8b71-4b8ed62f8f1d" class="">
+            <mark class="highlight-blue">Databases</mark>
+          </h3>
+          <p id="868ed4ee-b51f-4520-bef6-645dd2deb3e7" class="">
+            Databases are programs that either use disk or memory to do 2 core
+            things: record data and query data. In general, they are themselves
+            servers that are long lived and interact with the rest of your
+            application through network calls, with protocols on top of TCP or
+            even HTTP.<br />Some databases only keep records in memory, and the
+            users of such databases are aware of the fact that those records may
+            be lost forever if the machine or process dies.<br />For the most
+            part though, databases need persistence of those records, and thus
+            cannot use memory. This means that you have to write your data to
+            disk. Anything written to disk will remain through power loss or
+            network partitions, so that&#x27;s what is used to keep permanent
+            records<br />Since machines die often in a large scale system,
+            special disk partitions or volumes are used by the database
+            processes, and those volumes can get recovered even if the machine
+            were to go down permanently.<br />
+          </p>
+          <h3 id="aae2d2b1-4f31-416d-8dfc-aac364c15b3d" class="">
+            <mark class="highlight-blue">Disk</mark>
+          </h3>
+          <p id="df0f6ff1-2f2a-44db-9d94-fb11a93c5aed" class="">
+            Usually refers to either HDD (hard-disk drive) or SSD (solid-state
+            drive). Data written to disk will persist through power failures and
+            general machine crashes. Disk is also referred to as non-volatile
+            storage.<br />SSD is far faster than HDD (see latencies of accessing
+            data from SSD and HDD) but also far more expensive from a financial
+            point of view. Because of that, HDD will typically be used for data
+            that&#x27;s rarely accessed or updated, but that&#x27;s stored for a
+            long time, and SSD will be used for data that&#x27;s frequently
+            accessed and updated.<br />
+          </p>
+          <h3 id="7e1627a2-4ae0-4a51-b4f5-174347ad2a70" class="">
+            <mark class="highlight-blue">Memory</mark>
+          </h3>
+          <p id="457a62b0-1d0c-47fe-bb07-fd934b1190c3" class="">
+            Short for Random Access Memory (RAM). Data stored in memory will be
+            lost when the process that has written that data dies.
+          </p>
+          <h3 id="8febd95d-45ed-4eff-8f07-4b35e84dc5bf" class="">
+            <mark class="highlight-blue">Persistent Storage</mark>
+          </h3>
+          <p id="c513f8f8-f4b0-42ff-a44c-fcc50a5ab889" class="">
+            Usually refers to disk, but in general it is any form of storage
+            that persists if the process in charge of managing it dies.
+          </p>
+          <h3 id="a5106c78-baf1-43ad-81f6-326c27d8d850" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="cf9f1ff3-d27b-4472-8c6b-9f04b64c36a1" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="75ec8aed-d472-4135-918f-699fdf73abd0">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="730eb6c3-4ce1-40cb-bb4a-c35afaba3359">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Foundational System Design
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">Storage</td>
+                <td id="mj;n" class="" style="width: 575.171875px">
+                  In-memory, Persistence, Cache, Database (Persistence only)
+                </td>
+                <td id="|_VV" class="" style="width: 501px">Ram, Disk</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="ca11cc6c-fcab-461f-9f66-fa90624bf3f6" class=""></p>
+          <br />
+          <hr id="bd204c63-c86d-435c-a912-2cb224c7742f" />
+          <h2 id="33a5962e-d105-47e4-8ac7-1518739ddab3" class="">
+            <mark class="highlight-teal">SQL</mark>
+          </h2>
+          <h3 id="e273e462-250c-4d72-b439-ca09f67c7181" class="">
+            <mark class="highlight-blue">Relational Database</mark>
+          </h3>
+          <p id="3f160a61-5339-4ceb-bc5b-d00883bf8f53" class="">
+            A type of structured database in which data is stored following a
+            tabular format; often supports powerful querying using SQL.
+          </p>
+          <h3 id="dbc9d785-f537-4f33-b93b-0f575ee2ffd9" class="">
+            <mark class="highlight-blue">SQL</mark>
+          </h3>
+          <p id="f5446205-b5d7-4826-a44b-95c6e68aee40" class="">
+            Structured Query Language. Relational databases can be used using a
+            derivative of SQL such as PostgreSQL in the case of Postgres.
+          </p>
+          <h3 id="8f82200b-94d9-4003-ab07-3819e19a796c" class="">
+            <mark class="highlight-blue">SQL Database</mark>
+          </h3>
+          <p id="be97c6f6-7fac-4556-897f-724b87081593" class="">
+            Any database that supports SQL. This term is often used synonymously
+            with &quot;Relational Database&quot;, though in practice, not every
+            relational database supports SQL.
+          </p>
+          <h3 id="c8530874-c753-4a02-835e-0bfb536c49a0" class="">
+            <mark class="highlight-blue">ACID Transaction</mark>
+          </h3>
+          <p id="7427aacd-4a9a-4627-ba87-daf79f7b77f5" class="">
+            A type of database transaction that has four important properties
+          </p>
+          <ul id="bdb32320-3e4a-402b-9b85-e38995d4b06d" class="bulleted-list">
+            <li style="list-style-type: disc">
+              Atomicity: The operations that constitute the transaction will
+              either all succeed or all fail. There is no in-between state.
+            </li>
+          </ul>
+          <ul id="f92a7608-fca7-46a9-8db9-bf8d0d58a29d" class="bulleted-list">
+            <li style="list-style-type: disc">
+              Consistency: The transaction cannot bring the database to an
+              invalid state. After the transaction is committed or rolled back,
+              the rules for each record will still apply, and all future
+              transactions will see the effect of the transaction. Also named
+              Strong Consistency.
+            </li>
+          </ul>
+          <ul id="ef07deab-897c-4938-8fc2-9bb134ba46ba" class="bulleted-list">
+            <li style="list-style-type: disc">
+              Isolation: The execution of multiple transactions concurrently
+              will have the same effect as if they had been executed
+              sequentially.
+            </li>
+          </ul>
+          <ul id="9bfb7966-f397-4e0f-a732-51e640582489" class="bulleted-list">
+            <li style="list-style-type: disc">
+              Durability: Any committed transaction is written to non-volatile
+              storage. It will not be undone by a crash, power loss, or network
+              partition.
+            </li>
+          </ul>
+          <h3 id="a2c7751b-24d1-4ca1-9f26-871849fedc66" class="">
+            <mark class="highlight-blue">Database Index</mark>
+          </h3>
+          <p id="857f36b8-dda7-4a25-bef4-ff9c68817c05" class="">
+            A special auxiliary data structure that allows your database to
+            perform certain queries much fasten. Indexes can typically only
+            exist to reference structured data, like data stored in relational
+            databases. In practice, you create an index on one or multiple
+            columns in your database to greatly speed up read queries that you
+            run very often, with the downside of slightly longer writes to your
+            database, since writes have to also take place in the relevant
+            index.
+          </p>
+          <p id="ec7b29d4-392e-4c2e-bfdf-9fd4ae9ac155" class="">
+            Indexing is creating Auxailiary Data structure to improve search
+            process.
+          </p>
+          <p id="c821ea98-953c-42f3-80d9-b91455f5fc3b" class="">
+            Different types of database index likeBitmap Indexes, Reverse
+            indexes, Dense indexes.
+          </p>
+          <h3 id="45ba5584-5448-437a-a7a5-adb44360fdbb" class="">
+            <mark class="highlight-blue">Strong Consistency</mark>
+          </h3>
+          <p id="9890d134-e307-4686-9732-098b33b6bdd8" class="">
+            Strong Consistency usually refers to the consistency of ACID
+            transactions, as opposed to Eventual Consistency.
+          </p>
+          <h3 id="8ebc10d7-7d09-47d1-8aab-233115ac5fa9" class="">
+            <mark class="highlight-blue">Eventual Consistency</mark>
+          </h3>
+          <p id="48a98577-d147-4a6c-905d-ecb5e22c9261" class="">
+            A consistency model which is unlike Strong Consistency, In this
+            model, reads might return a view of the system that is stale. An
+            eventually consistent datastore will give guarantees that the state
+            of the database will eventually reflect writes within a time period
+            (could be 10 seconds, or minutes).
+          </p>
+          <h3 id="d54496cd-aa7b-4854-9fbc-25e6e61969bf" class="">
+            <mark class="highlight-blue">Postgres</mark>
+          </h3>
+          <p id="97c7e528-e6e1-4885-b187-7a288432ee9e" class="">
+            A relational database that uses a dialect of SQL called PostgreSQL
+            Provides ACID transactions.
+          </p>
+          <p id="8bab96dd-9b66-46b9-98c8-91e54c8bb3c3" class="">
+            Learn more: https://www.postgresql.org/
+          </p>
+          <p id="8c5e0fb5-7ef0-4fba-8262-c93b8be21e27" class="">
+            SQL is programing language
+          </p>
+          <p id="3614deca-2c50-4fde-8a21-26d3ff3455fc" class="">
+            Most relational databases supports SQL
+          </p>
+          <p id="f623c90c-3d50-4f8e-b5ad-1086ace2de2e" class="">
+            By using programming language to query complex queries will take non
+            trivial amount of process because we need to load huge data in
+            memory but sql can query without having to load data in memory.
+          </p>
+          <p id="38152156-4840-42a4-9284-e65bec802f08" class="">
+            Imported database operation is ACID
+          </p>
+          <h3 id="12205ff4-b428-45e5-8d90-1717e14e18da" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="28f61d56-4ca4-4f66-ae50-83632984da51" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="eee3da4e-5957-494c-9562-cbcf4ec1a79e">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="76ca994e-5e41-4c64-8211-f02fa4415593">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Foundational System Design
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">SQL</td>
+                <td id="mj;n" class="" style="width: 575.171875px">
+                  Database (Persistence only)
+                </td>
+                <td id="|_VV" class="" style="width: 501px">
+                  PostgreSQL, Mysql
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="27caf554-ccde-4e0a-9bff-5aa15820b8b8" class=""></p>
+          <br />
+          <hr id="6901d695-ac7c-4560-acf6-ae4d9dbd6598" />
+          <h2 id="06f9031d-0ccd-4394-bc0d-8d9415b7bc69" class="">
+            <mark class="highlight-teal">No-SQL</mark>
+          </h2>
+          <h3 id="1adf5a4a-9846-4110-8681-82e4b275aeea" class="">
+            <mark class="highlight-blue">Non-Relational Database</mark>
+          </h3>
+          <p id="e36b521a-378a-4317-a5b5-29fc73513949" class="">
+            In contrast with relational database (SQL databases), a type of
+            database that is free of imposed, tabular-like structure.
+          </p>
+          <p id="2a21a924-b53b-4e27-a6c6-db0ff615e536" class="">
+            Non-relational databases are often referred to as NoSQL databases.
+          </p>
+          <h3 id="90a7539b-99e9-4b35-a6c7-7138f1897d25" class="">
+            <mark class="highlight-blue">NoSQL Database</mark>
+          </h3>
+          <p id="04891f06-6943-4de2-aea5-736d6d93dcfd" class="">
+            Any database that is not SQL-compatible is called NoSQL.
+          </p>
+          <p id="a6cddf4e-961f-4647-a09f-aef2254e61f9" class=""></p>
+          <br />
+          <h3 id="0e7e0134-6400-429f-b427-e6d0f2b535db" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="02363adc-d5c5-4b4c-95fa-fba25deaa639" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="eab07584-6f5f-4191-86d0-efa5ecf4fd5b">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="80923904-f560-4793-92f0-bf3064821b9b">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Foundational System Design
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">NO-SQL</td>
+                <td id="mj;n" class="" style="width: 575.171875px">-</td>
+                <td id="|_VV" class="" style="width: 501px">Elasticsearch</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="9650d109-73fa-4b1e-8251-73c5a5f4c817" class=""></p>
+          <br />
+          <hr id="79ffa5e0-c65d-423d-9ac1-65be3628aea2" />
+          <h2 id="0b11716a-8ab2-43be-9f01-e2b09abb236d" class="">
+            <mark class="highlight-teal">Key-Value Store</mark>
+          </h2>
+          <p id="716bfe18-a8cc-4b68-a1df-5326b6cf688b" class="">
+            A Key-Value Store is a flexible NoSOL database that&#x27;s often
+            used for caching and dynamic configuration. Popular options include
+            DynamoDB, Etcd, Redis, and ZooKeeper.
+          </p>
+          <h3 id="4ff43a4b-879e-4c35-8a92-0d043a2bdc4d" class="">
+            <mark class="highlight-blue">Eted</mark>
+          </h3>
+          <p id="85447fbf-d1c6-4f21-8b9b-b7d5b47168b5" class="">
+            Etcd is a strongly consistent and highly available key-value store
+            that&#x27;s often used to implement leader election in a system.<br />Learn
+            more: <br /><a href="https://etcd.io/">https://etcd.io/</a>
+          </p>
+          <h3 id="96f39778-ae10-4f1b-adbc-738aacfc7bd1" class="">
+            <mark class="highlight-blue">Redis</mark>
+          </h3>
+          <p id="7194aba9-c7ff-43d4-bbeb-499a1cddb620" class="">
+            An in-memory key-value store. Does offer some persistent storage
+            options but is typically used as a really fast, best effort caching
+            solution. Redis is also often used to implement rate limiting.<br />Learn
+            more: <br /><a href="https://redis.io/">https://redis.io/</a>
+          </p>
+          <h3 id="0f62a0c2-519f-4637-a14f-78ef108a227c" class="">
+            <mark class="highlight-blue">ZooKeeper</mark>
+          </h3>
+          <p id="74e440d9-098b-4bc5-8144-02c782ecebce" class="">
+            ZooKeeper is a strongly consistent, highly available key-value
+            store. It&#x27;s often used to store important configuration or to
+            perform leader election.<br />Learn more: <br /><a
+              href="https://zookeeper.apache.org/"
+              >https://zookeeper.apache.org/</a
+            >
+          </p>
+          <h3 id="a6874f2d-67e0-4d29-99c1-a76e493aab94" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="13704568-84fc-441d-af9f-d6bbe54d0aa8" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="6520607b-6a9c-4150-b7c7-9458fe2edfaa">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="799f0abf-4e04-421e-b56c-de393f6db95a">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Foundational System Design
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">
+                  Key-Value Store
+                </td>
+                <td id="mj;n" class="" style="width: 575.171875px">
+                  In-memory, Persistence
+                </td>
+                <td id="|_VV" class="" style="width: 501px">
+                  Redis, Etcd, Zookeeper
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="97104115-e4fb-45a4-904c-518154bede72" class=""></p>
+          <br />
+          <hr id="484aed5b-2a5e-43c0-9344-e03744f27706" />
+          <h2 id="aa743edf-d938-489b-9c1c-3cd450dbbd0e" class="">
+            <mark class="highlight-teal">Blob Storage</mark>
+          </h2>
+          <p id="aae76ef7-c086-4d01-a535-45052c6d8893" class="">
+            Arbitrary piece of unstructured data.
+          </p>
+          <p id="4ce71fb2-f5fd-4360-8eec-3b1d7b3766de" class="">
+            Widely used kind of storage, in small and large scale systems. They
+            don&#x27;t really count as databases per se, partially because they
+            only allow the user to store and retrieve data based on the name of
+            the blob. This is sort of like a key-value store but usually blob
+            stores have different guarantees. They might be slower than KV
+            stores but values can be megabytes large (or sometimes gigabytes
+            large). Usually people use this to store things like large binaries,
+            database snapshots, or images and other static assets that a website
+            might have.<br />Blob storage is rather complicated to have on
+            premise, and only giant companies like Google and Amazon have
+            infrastructure that supports it. So usually in the context of System
+            Design interviews you can assume that you will be able to use GCS or
+            S3. These are blob storage services hosted by Google and Amazon
+            respectively, that cost money depending on how much storage you use
+            and how often you store and retrieve blobs from that storage.<br />
+          </p>
+          <h3 id="463e0755-ff98-49a2-90d9-e8ff3ee7e22c" class="">
+            <mark class="highlight-blue">Google Cloud Storage</mark>
+          </h3>
+          <p id="6d96402d-6690-43c3-996e-5dedf98fbfbc" class="">
+            GCS is a blob storage service provided by Google.<br />Learn more:
+            <br /><a href="https://cloud.google.com/storage"
+              >https://cloud.google.com/storage</a
+            >
+          </p>
+          <h3 id="a5e164b9-c975-4f47-8267-fa9325d6feba" class="">
+            <mark class="highlight-blue">s3</mark>
+          </h3>
+          <p id="fa2aca31-2b3d-4409-b555-f30b2ce354b4" class="">
+            S3 is a blob storage service provided by Amazon through Amazon Web
+            Services (AWS).<br />Learn more: <br /><a
+              href="https://aws.amazon.com/53/"
+              >https://aws.amazon.com/53/</a
+            >
+          </p>
+          <h3 id="2c921856-cbc7-4dfc-8441-717b9460ed93" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="79327afd-309d-41f3-9b2f-554215bf8658" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="8183786d-b4cd-4915-8ca6-c147875bdea7">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="91397232-e137-4ba0-b344-71010d1c5bee">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Foundational System Design
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">
+                  Blob Storage
+                </td>
+                <td id="mj;n" class="" style="width: 575.171875px">-</td>
+                <td id="|_VV" class="" style="width: 501px">GCB, S3</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="6b04838f-0faa-4204-8fa7-e4aeeca43342" class=""></p>
+          <br />
+          <hr id="980a57f1-a392-427d-b781-66ecaeaa5e61" />
+          <h2 id="2f77edb3-4190-4fa9-8e4d-8f73ae22663d" class="">
+            <mark class="highlight-teal">Time Series Database</mark>
+          </h2>
+          <p id="ec539484-338c-41af-aa60-427389f05de8" class="">
+            A TSDB is a special kind of database optimized for storing and
+            analyzing time indexed data: data points that specifically occur at
+            a given moment in time. Examples of TSDBs are InfluxDB, Prometheus,
+            and Graphite.
+          </p>
+          <h3 id="1d19eafa-dc33-4496-b5ef-ddf16b2e87bb" class="">
+            <mark class="highlight-blue">Prometheus</mark>
+          </h3>
+          <p id="27cb1787-aa42-45e3-8521-9acee840e2d6" class="">
+            A popular open-source time series database, typically used for
+            monitoring purposes.
+          </p>
+          <p id="9351cbb8-857c-4500-9cd3-4a9a2afb8c6c" class="">
+            Learn more: https://prometheus.io/
+          </p>
+          <h3 id="65e15a15-4a18-4130-97a8-d8b1507de5df" class="">
+            I<mark class="highlight-blue">nfluxDB</mark>
+          </h3>
+          <p id="0110dca0-cad9-4ad6-9d96-f5cb3f948f24" class="">
+            A popular open-source time series database.
+          </p>
+          <p id="18671c7c-6c8f-42de-842d-bd5e2f9c4125" class="">
+            Learn more: https://www.influxdata.com/
+          </p>
+          <h3 id="132844a4-fbb6-4353-8590-6f2f55aee9cb" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="dd9e2435-1d51-4af8-b2f0-93af83ad7733" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="aae8d728-0ba5-45b3-8f37-faa87f8618ae">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="28849600-5786-4857-8328-98ce4e8f388a">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Foundational System Design
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">
+                  Time-Series Database
+                </td>
+                <td id="mj;n" class="" style="width: 575.171875px">-</td>
+                <td id="|_VV" class="" style="width: 501px">
+                  InfluxDB, Prometheus
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="9aad5a45-bc8a-4b0a-9de9-9f20168b5a96" class=""></p>
+          <br />
+          <hr id="23ce69a2-29ff-4d00-8624-107f2517519e" />
+          <h2 id="b85de33b-062a-47bc-bfe4-e020e383b7c5" class="">
+            <mark class="highlight-teal">Graph Database</mark>
+          </h2>
+          <p id="7bf3fa93-a9a0-40f2-93df-b651a180e53e" class="">
+            A type of database that stores data following the graph data model.
+            Data entries in a graph database can have explicitly defined
+            relationships, much like nodes in a graph can have edges.
+          </p>
+          <p id="3a73017d-0135-4da1-b66f-1d72a5ad0ea6" class="">
+            Graph databases take advantage of their underlying graph structure
+            to perform complex queries on deeply connected data very fast.
+          </p>
+          <p id="74fa46f5-6fb9-4a83-8a6a-e598fa8dbfc6" class="">
+            Graph databases are thus often preferred to relational databases
+            when dealing with systems where data points naturally form a graph
+            and have multiple levels of relationships for example, social
+            networks.
+          </p>
+          <h3 id="567fe5b6-fbe5-47c7-9700-b15b0fd76ece" class="">
+            <mark class="highlight-blue">Cypher</mark>
+          </h3>
+          <p id="ec51facd-ff2e-43be-8e30-e3d3e20bc491" class="">
+            A graph query language that was originally developed for the Neo4j
+            graph database, but that has since been standardized to be used with
+            other graph databases in an effort to make it the &quot;SQL for
+            graphs.&quot;
+          </p>
+          <p id="77a7a51c-d6c2-49d5-980b-c5d25adf7ad9" class="">
+            Cypher queries are often much simpler than their SQL counterparts.
+            Example Cypher query to find data in Neo4j, a popular graph
+            database:
+          </p>
+          <p id="01e836d3-2664-4320-8c38-3c2eac28742a" class="">
+            MATCH (some_node/SomeLabel)-[:
+            SOME_RELATIONSHIP]-(some_other_node:SomeLabel (some_property:
+            &#x27;value&#x27;})
+          </p>
+          <h3 id="c3a7bd7c-8e55-48e3-97f7-5e56ffb62566" class="">
+            <mark class="highlight-blue">Neo4j</mark>
+          </h3>
+          <p id="95318f02-4746-4d22-8111-38943ae64073" class="">
+            A popular graph database that consists of nodes, relationships,
+            properties, and labels.
+          </p>
+          <p id="17171c69-77ca-41c2-965d-1afb718c9c9d" class="">
+            Learn more: <a href="https://neo4j.com/">https://neo4j.com/</a>
+          </p>
+          <p id="f821aa29-2f94-4976-869c-76544a5f0ef5" class=""></p>
+          <br />
+          <h3 id="f33235bd-6a91-409e-a604-0f12288f09bc" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="9a277e0a-ee1a-49d3-845d-0508daeb30b5" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="edb09287-11b2-4935-a567-3bc009cc39d6">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="00c22cc2-27aa-48ef-813b-203229cf027f">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Foundational System Design
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">
+                  Graph Database
+                </td>
+                <td id="mj;n" class="" style="width: 575.171875px">Cypher</td>
+                <td id="|_VV" class="" style="width: 501px">Neo4j</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="9f73f441-8580-435c-b8a7-d8d5238f716d" class=""></p>
+          <br />
+          <hr id="ec8bc83b-843f-44ee-913b-31391f048f46" />
+          <h2 id="5de0ff6c-9f8d-49fe-b56e-1b58eac7148b" class="">
+            <mark class="highlight-teal">Spatial Database</mark>
+          </h2>
+          <p id="1bcc7a1c-55e1-48a3-b0e2-257875089f7c" class="">
+            A type of database optimized for storing and querying spatial data
+            like locations on a map. Spatial databases rely on spatial indexes
+            like quadtrees to quickly perform spatial queries like finding all
+            locations in the vicinity of a region.
+          </p>
+          <h3 id="b3e1d415-330d-49ba-8f01-3f5063090af7" class="">
+            <mark class="highlight-blue">Quadtree</mark>
+          </h3>
+          <p id="f3101bd8-d6df-43e0-b8eb-bf0d59826053" class="">
+            A tree data structure most commonly used to index two-dimensional
+            spatial data. Each node in a quadtree has either zero children nodes
+            (and is therefore a leaf node) or exactly four children nodes.
+          </p>
+          <p id="226b3a70-0316-4141-8e38-0c8bcd055f9e" class="">
+            Typically, quadtree nodes contain some form of spatial data —for
+            example, locations on a map —with a maximum capacity of some
+            specified number n. So long as nodes aren&#x27;t at capacity, they
+            remain leaf nodes; once they reach capacity, they&#x27;re given four
+            children nodes, and their data entries are split across the four
+            children nodes.
+          </p>
+          <p id="b3734453-636f-441c-adc0-eebf3c11f4c0" class="">
+            A quadtree lends itself well to storing spatial data because it can
+            be represented as a grid filled with rectangles that are recursively
+            subdivided into four sub-rectangles, where each quadtree node is
+            represented by a rectangle and each rectangle represents a spatial
+            region. Assuming we&#x27;re storing locations in the world, we can
+            imagine a quadtree with a maximum node-capacity n as follows:
+          </p>
+          <ul id="f0346138-7e76-4f84-83f8-e70d59203945" class="bulleted-list">
+            <li style="list-style-type: disc">
+              The root node, which represents the entire world, is the outermost
+              rectangle.
+            </li>
+          </ul>
+          <ul id="ada285fe-30a1-4889-929b-8e38174df54e" class="bulleted-list">
+            <li style="list-style-type: disc">
+              If the entire world has more than n locations, the outermost
+              rectangle is divided into four quadrants, each representing a
+              region of the world.
+            </li>
+          </ul>
+          <ul id="b742d071-0f2a-48ff-b1e9-5c7dcbc0aaec" class="bulleted-list">
+            <li style="list-style-type: disc">
+              So long as a region has more than n locations, its corresponding
+              rectangle is subdivided into four quadrants (the corresponding
+              node in the quadtree is given four children nodes).
+            </li>
+          </ul>
+          <ul id="d12783c4-5f4b-41e4-b776-74cede3d644b" class="bulleted-list">
+            <li style="list-style-type: disc">
+              Regions that have fewer than n locations are undivided rectangles
+              (leaf nodes).
+            </li>
+          </ul>
+          <ul id="d39be0e1-88cd-4aba-9c33-1529a7b444ea" class="bulleted-list">
+            <li style="list-style-type: disc">
+              The parts of the grid that have many subdivided rectangles
+              represent densely populated areas (like cities), while the parts
+              of the grid that have few subdivided rectangles represent sparsely
+              populated areas (like rural areas).
+            </li>
+          </ul>
+          <p id="916491f7-2f6a-40f6-ba93-e22231f34d5b" class="">
+            Finding a given location in a perfect quadtree is an extremely fast
+            operation that runs in loga(x) time (where x is the total number of
+            locations), since quadtree nodes have four children nodes.
+          </p>
+          <h3 id="64318911-b4c6-4f1f-af9d-03dbc2878cc6" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="4523a2a0-b5aa-43b7-8a5f-6aa7720e79b7" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="ead243a1-7d26-4504-b691-a4d73a8b256b">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="f0a5ffe6-12cd-48a0-a4a6-4d1a85ca6e56">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Foundational System Design
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">
+                  Spatial Database
+                </td>
+                <td id="mj;n" class="" style="width: 575.171875px">Quadtree</td>
+                <td id="|_VV" class="" style="width: 501px">-</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="13d3ab48-5569-499d-9ec6-c78f2bb3a338" class=""></p>
+          <br />
+          <hr id="957b5c0a-3cf6-4aa6-b3f6-a7c41e83b7ce" />
+          <h2 id="f2bea26e-f848-4f4a-9b61-2e9f65eda0ad" class="">
+            <mark class="highlight-teal">Cache</mark>
+          </h2>
+          <p id="f73ec001-8d8f-4bd1-b0f6-e5e35caade8e" class="">
+            Is mainly for avoiding the redoing of operations<br />A piece of
+            hardware or software that stores data, typically meant to retrieve
+            that data faster than otherwise.<br />Caches are often used to store
+            responses to network requests as well as results of
+            computationally-long operations or DB operation or repeated
+            operations .<br />Note that data in a cache can become stale if the
+            main source of truth for that data (i.e., the main database behind
+            the cache) gets updated and the cache doesn&#x27;t.<br />
+          </p>
+          <p id="bf441243-a1e1-43e4-af24-3d8ff51b46eb" class="">
+            Cacheing is good fit when we dealing static data or immutable data
+          </p>
+          <h3 id="3205e8b6-2ef1-4128-ba73-ba3f30ca2b2c" class="">
+            <mark class="highlight-blue">Cache Hit</mark>
+          </h3>
+          <p id="7512b91e-e86b-41dd-a063-5b6b0b235b62" class="">
+            When requested data is found in a cache.
+          </p>
+          <h3 id="bcc3709e-a2a3-43b3-bafb-1fb2734c448c" class="">
+            <mark class="highlight-blue">Cache Miss</mark>
+          </h3>
+          <p id="29ce9021-ecc9-447c-8796-c3a0ea8a51b0" class="">
+            When requested data could have been found in a cache but isn&#x27;t.
+            This is typically used to refer to a negative consequence of a
+            system failure or of a poor design choicel for example:<br />If a
+            server goes down, our load balancer will have to forward requests to
+            a new server, which will result in cache misses.<br />
+          </p>
+          <h3 id="8137d905-93eb-4d45-ab7a-403b6294bbc9" class="">
+            <mark class="highlight-blue">Cache Eviction Policy</mark>
+          </h3>
+          <p id="362fbee5-748e-4301-bea8-15c00b66c395" class="">
+            The policy by which values get evicted or removed from a cache.
+            Popular cache eviction policies include LRU (least-recently used),
+            FIFO (first in first out), and LFU (least-frequently used).
+          </p>
+          <h3 id="2b268013-e337-4287-a6ee-f396a59e05ba" class="">
+            <mark class="highlight-blue">Reddis</mark>
+          </h3>
+          <p id="6a72fb6f-3aff-4e62-bf58-891d01772630" class="">
+            Sync data in both cache and databases<br />Write through cache -
+            update data in both cache and database synchronously.<br />Write
+            back cache - update data first in cache and asynchronously
+            database.<br />
+          </p>
+          <p id="90786647-45dd-4434-80b3-2455bce51314" class="">
+            Staleness of data in distributed system so create common cache data
+            like reddis to handle stale data.
+          </p>
+          <p id="0a68c1ae-8b2e-4a1d-be0e-0e7cfb926f66" class="">
+            For get rid of stale data or for hading size of cache in caches DB
+            will use some Eviction policies (LRU, )
+          </p>
+          <h3 id="94849645-e49c-455c-a9d3-a88800681e94" class="">
+            <mark class="highlight-blue">Content Delivery Network</mark>
+          </h3>
+          <p id="43fac13a-3497-47d9-bb3e-ff746b489264" class="">
+            A CDN is a third-party service that acts like a cache for your
+            servers. Sometimes, web applications can be slow for users in a
+            particular region if your servers are located only in another
+            region. A CDN has servers all around the world, meaning that the
+            latency to a CDN&#x27;s servers will almost always be far better
+            than the latency to your servers. A CDN&#x27;s servers are often
+            referred to as PoPs (Points of Presence). Two of the most popular
+            CDNs are Cloudflare and Google Cloud CDN.
+          </p>
+          <h3 id="fccf77f9-028f-4c05-8f65-c94b6dad91e7" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="f9363c6f-579d-4467-b81a-8d50d11b02d8" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="30b2f810-b220-4096-a4b7-b9c21b337c02">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="49c61977-712d-44a0-96ba-186ac3e00cd7">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Foundational System Design
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">Cache</td>
+                <td id="mj;n" class="" style="width: 575.171875px">
+                  Cache Hit, Cache Miss, Cache Eviction Policy, CDN, Redis,
+                  Write Through Cache, Write Back Cache, Data Staleness
+                </td>
+                <td id="|_VV" class="" style="width: 501px">Reddis</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="7954cb33-f29d-4b3c-9171-e4edc4c81f4d" class=""></p>
+          <br />
+          <hr id="6bd582a5-6c98-4917-874f-f5d0511ce817" />
+          <h2 id="2ea9f4f2-4264-41bd-850d-ede52445076b" class="">
+            <mark class="highlight-teal">MapReduce</mark>
+          </h2>
+          <h3 id="b5912bb1-c7fa-4c3f-b71f-ac9d08c51603" class="">
+            <mark class="highlight-blue">File System</mark>
+          </h3>
+          <p id="4bb52da1-07ff-4f3a-aff9-56caa9193c9c" class="">
+            An abstraction over a storage medium that defines how to manage
+            data. While there exist many different types of file systems, most
+            follow a hierarchical structure that consists of directories and
+            files, like the Unix file system&#x27;s structure.
+          </p>
+          <h3 id="1aa2d809-934c-4531-a2ef-24e5ac9c6d10" class="">
+            <mark class="highlight-blue">MapReduce</mark>
+          </h3>
+          <p id="0e7d34f2-036e-46fa-9174-0ab3398779f3" class="">
+            A popular framework for processing very large datasets in a
+            distributed setting efficiently, quickly, and in a fault-tolerant
+            manner. A MapReduce job is comprised of 3 main steps
+          </p>
+          <ul id="e0402f06-9779-45c4-8881-ece018d7b3e4" class="bulleted-list">
+            <li style="list-style-type: disc">
+              the Map step, which runs a map function on the various chunks of
+              the dataset and transforms these chunks into intermediate
+              key-value pairs.
+            </li>
+          </ul>
+          <ul id="096169a3-5c2d-4a3c-9bdd-59040d051d6c" class="bulleted-list">
+            <li style="list-style-type: disc">
+              the Shuffle step, which reorganizes the intermediate key-value
+              pairs such that pairs of the same key are routed to the same
+              machine in the final step.
+            </li>
+          </ul>
+          <ul id="982fb31d-0508-478f-b4cc-4d656915ac41" class="bulleted-list">
+            <li style="list-style-type: disc">
+              the Reduce step, which runs a reduce function on the newly
+              shuffled key-value pairs and transforms them into more meaningful
+              data.
+            </li>
+          </ul>
+          <p id="76855c20-6832-4645-a042-48f5dc903ec0" class="">
+            The canonical example of a MapReduce use case is counting the number
+            of occurrences of words in a large text file.
+          </p>
+          <p id="94707c73-6c75-445a-a7f2-e420bd3109fa" class="">
+            When dealing with a MapReduce library, engineers and/or systems
+            administrators only need to worry about the map and reduce
+            functions, as well as their inputs and outputs. All other concerns,
+            including the parallelization of tasks and the fault-tolerance of
+            the MapReduce job, are abstracted away and taken care of by the
+            MapReduce implementation.
+          </p>
+          <h3 id="69d13913-8890-4175-b024-7134eef45a10" class="">
+            <mark class="highlight-blue">Idempotent Operation</mark>
+          </h3>
+          <p id="9e7ccf93-1595-4e33-b26e-9b5c7a90b6a6" class="">
+            An operation that has the same ultimate outcome regardless of how
+            many times it&#x27;s performed. If an operation can be performed
+            multiple times without changing its overall effect, it&#x27;s
+            idempotent. Operations performed through a Pub/Sub messaging system
+            typically have to be idempotent, since Pub/Sub systems tend to allow
+            the same messages to be consumed multiple times.
+          </p>
+          <p id="fbb4677a-78fa-4dd3-92de-8e872bb8033c" class="">
+            For example, increasing an integer value in a database is not an
+            idempotent operation, since repeating this operation will not have
+            the same effect as if it had been performed only once. Conversely,
+            setting a value to &quot;COMPLETE&quot; is an idempotent operation,
+            since repeating this operation will always yield the same result:
+            the value will be &quot;COMPLETE&quot;.
+          </p>
+          <h3 id="cafb147d-d065-4b9c-bfe3-b56bfbf9e446" class="">
+            <mark class="highlight-blue">Distributed File System</mark>
+          </h3>
+          <p id="f2279acd-73f4-49d6-b13e-289730d4e41c" class="">
+            A Distributed File System is an abstraction over a (usually large)
+            cluster of machines that allows them to act like one large file
+            system. The two most popular implementations of a DFS are the Google
+            File System (GFS) and the Hadoop Distributed File System (HDFS).
+          </p>
+          <p id="d47df61f-b2b9-4318-a28d-5f7acbc0bb10" class="">
+            Typically, DFSs take care of the classic availability and
+            replication guarantees that can be tricky to obtain in a
+            distributed-system setting. The overarching idea is that files are
+            split into chunks of a certain size (4MB or 64MB, for instance), and
+            those chunks are sharded across a large cluster of machines. A
+            central control plane is in charge of deciding where each chunk
+            resides, routing reads to the right nodes, and handling
+            communication between machines.
+          </p>
+          <p id="fca619d8-9c33-4acd-b6e5-d7a7625960e5" class="">
+            Different DFS implementations have slightly different APIs and
+            semantics, but they achieve the same common goal: extremely
+            large-scale persistent storage.
+          </p>
+          <h3 id="5551ca96-dc93-4c02-a3c1-0053dc05b543" class="">
+            <mark class="highlight-blue">Hadoop</mark>
+          </h3>
+          <p id="13568247-6ee9-4f3f-93c6-a7cbe8828b70" class="">
+            A popular, open-source framework that supports MapReduce jobs and
+            many other kinds of data-processing pipelines. Its central component
+            is HDFS (Hadoop Distributed File System), on top of which other
+            technologies have been developed.
+          </p>
+          <p id="91e17a73-6df2-4cc2-b2ae-e98548c72c99" class="">
+            Learn more: https://hadoop.apache.org/
+          </p>
+          <h3 id="9e988f1f-1c1b-4ae6-ae5c-f4f95f98d8e8" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="dc2d1ef9-8497-4e6f-b3a7-693c1f1505c0" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="5a4c196e-975e-4e86-8e24-a5b7895870c8">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="cc72e77c-c83e-4a90-a4cd-07dcaa857580">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Foundational System Design
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">MapReduce</td>
+                <td id="mj;n" class="" style="width: 575.171875px">
+                  MapReduce
+                </td>
+                <td id="|_VV" class="" style="width: 501px">Hadoop</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="5234b7ba-50c6-4ae7-b0b5-aaf740111170" class=""></p>
+          <br />
+          <hr id="724f6af8-ba58-44e8-816a-23307c00920f" />
+          <h2 id="7d7fd0aa-6119-4d9c-b86b-db3b04edbf95" class="">
+            <mark class="highlight-teal">API Design</mark>
+          </h2>
+          <p id="707841cc-f569-4619-a372-5f37400e60ba" class="">
+            API Design will relay on entities and resources for an API
+          </p>
+          <h3 id="052a33c5-fb11-46a3-828a-0af213a9bad4" class="">
+            <mark class="highlight-blue">ACL</mark>
+          </h3>
+          <p id="a75285b6-775b-455f-9590-423b5ad75811" class="">
+            Short for Access-Control List. This term is often used to refer to a
+            permissioning model: which users in a system can perform which
+            operations. For instance, APIs often come with ACLs defining which
+            users can delete, edit, or view certain entities.
+          </p>
+          <h3 id="cf01ed05-fd41-4a2e-891d-5c9e8b7dcf3b" class="">
+            <mark class="highlight-blue">Pagination</mark>
+          </h3>
+          <p id="9c007693-8dd1-4880-9f0a-4a06eb3e1c0f" class="">
+            When a network request potentially warrants a really large response,
+            the relevant API might be designed to return only a single page of
+            that response (i.e., a limited portion of the response), accompanied
+            by an identifier or token for the client to request the next page if
+            desired.<br />Pagination is often used when designing List
+            endpoints. For instance, an endpoint to list videos on the YouTube
+            Trending page could return a huge list of videos. This wouldn&#x27;t
+            perform very well on mobile devices due to the lower network speeds
+            and simply wouldn&#x27;t be optimal, since most users will only ever
+            scroll through the first ten or twenty videos. So, the API could be
+            designed to respond with only the first few videos of that list; in
+            this case, we would say that the API response is paginated.<br />
+          </p>
+          <h3 id="32446384-13af-4ce4-8ec7-eb79ba4ff6f7" class="">
+            <mark class="highlight-blue">CRUD Operations</mark>
+          </h3>
+          <p id="1c066d5b-706d-4c28-9f11-312df6b82d32" class="">
+            Stands for Create, Read, Update, Delete Operations. These four
+            operations often serve as the bedrock of a functioning system and
+            therefore find themselves at the core of many APIs. The term CRUD is
+            very likely to come up during an API-design interview.
+          </p>
+          <h3 id="9ee0607b-0320-4cd1-9807-8b5d123a68f7" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="f3bf5f42-7d6b-4156-a555-041059001603" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="aa706655-6461-400f-b6f0-e623ea154f2c">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="3d6aaaa6-becd-4967-95f8-ff4657edf6e6">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Foundational System Design
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">
+                  API Design
+                </td>
+                <td id="mj;n" class="" style="width: 575.171875px">
+                  Entity, ACL, Pagination, CRUD Operations
+                </td>
+                <td id="|_VV" class="" style="width: 501px">-</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="4ce5cfe3-b2d2-4fdb-a66e-fb15d1e08a28" class=""></p>
+          <br />
+          <hr id="9cffeeb2-5167-4c4c-88a4-1819b1a900d1" />
+          <h2 id="c519ce54-b5e4-4717-9e12-9be5f97e36e4" class="">
+            <mark class="highlight-teal">Logging, Monitoring and Alerts</mark>
+          </h2>
+          <h3 id="958ff293-a4c1-40c0-a048-ac9f027835fb" class="">
+            <mark class="highlight-blue">Logging</mark>
+          </h3>
+          <p id="3a4a6a3b-f75d-492f-9ee6-041c8587b96a" class="">
+            The act of collecting and storing logs-useful information about
+            events in your system. Typically your programs will output log
+            messages to its STDOUT or STDERR pipes, which will automatically get
+            aggregated into a centralized logging solution.
+          </p>
+          <h3 id="d7338690-3bec-4fb5-9176-997a35adabf0" class="">
+            <mark class="highlight-blue">Monitoring</mark>
+          </h3>
+          <p id="20efbca5-5d1b-4739-bdbf-b37b1f848aa0" class="">
+            The process of having visibility into a system&#x27;s key metrics,
+            monitoring is typically implemented by collecting important events
+            in a system and aggregating them in human readable charts.
+          </p>
+          <h3 id="25913731-3742-4583-83e1-5c99d6f4d913" class="">
+            <mark class="highlight-blue">Alerting</mark>
+          </h3>
+          <p id="ff52782f-d7b4-48e6-b27d-25b8f8f2645d" class="">
+            The process through which system administrators get notified when
+            critical system issues occur. Alerting can be set up by defining
+            specific thresholds on monitoring charts, past which alerts are sent
+            to a communication channel like Slack.
+          </p>
+          <h3 id="5d9ef425-9240-4132-af31-b11f75b58745" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="4c2fd1d2-a07e-4bc2-a7e4-fdbd3f571e57" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="fc2092b2-6d04-427c-b305-6055ba4d96e5">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="e8e32f41-f9fd-4a18-bf82-89396c6a7391">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Foundational System Design
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">
+                  Monitoring and Alerts
+                </td>
+                <td id="mj;n" class="" style="width: 575.171875px">
+                  Logging, Monitoring, Alerts
+                </td>
+                <td id="|_VV" class="" style="width: 501px">-</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="51f821d9-771b-43b6-8966-12f892d4ebc1" class=""></p>
+          <br />
+          <hr id="c13b021d-50f4-4793-a9f9-6258e4f561ed" />
+          <h2 id="1f8b47e7-d7af-4d46-b2cc-9a4965a206e1" class="">
+            <mark class="highlight-teal">Latency and Throughput</mark>
+          </h2>
+          <h3 id="8bd76515-6dfb-4fce-a6d3-a57fbcf36f56" class="">
+            <mark class="highlight-blue">Latency</mark>
+          </h3>
+          <p id="daa3c507-f142-4205-bf15-c77b0fa90251" class="">
+            The time it takes for a certain operation to complete in a system.
+            Most often this measure is a time duration, like milliseconds or
+            seconds. You should know these orders of magnitude reading
+            sequentially :
+          </p>
+          <ul id="d4c7ecab-f40a-441f-880b-b714d0d67c8d" class="bulleted-list">
+            <li style="list-style-type: disc">
+              Reading 1 MB from RAM: 250 us (0.25 ms)
+            </li>
+          </ul>
+          <ul id="a90a50cf-75c4-4337-a82b-e3d1940bf9b3" class="bulleted-list">
+            <li style="list-style-type: disc">
+              Reading 1 MB from SSD: 1,000 us (1 ms)
+            </li>
+          </ul>
+          <ul id="d2d1a2c2-7b89-4722-9dd1-1eff221e9684" class="bulleted-list">
+            <li style="list-style-type: disc">
+              Transfer 1 MB over 1gbps Network: 10,000 us (10 ms)
+            </li>
+          </ul>
+          <ul id="e6c33c15-3f34-434d-bd88-7dc78603fa5f" class="bulleted-list">
+            <li style="list-style-type: disc">
+              Reading 1MB from HDD: 20,000 us (20 ms)
+            </li>
+          </ul>
+          <ul id="02517687-b85c-48a6-8ef6-ed3f6b56f5d8" class="bulleted-list">
+            <li style="list-style-type: disc">
+              Inter-Continental Round Trip: 150,000 ps (150 ms)
+            </li>
+          </ul>
+          <h3 id="62cb10d9-ec48-4750-a449-f21d54ae2557" class="">
+            <mark class="highlight-blue">Throughput</mark>
+          </h3>
+          <p id="b1642ef6-9a59-462c-a09a-fe56957f1512" class="">
+            The number of operations that a system can handle properly per time
+            unit. For instance the throughput of a server can often be measured
+            in requests per second (RP5 or QPS).
+          </p>
+          <h3 id="fcf82ec0-8abf-4a31-86da-f860f3243795" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="6ac307fe-f94e-40be-9930-36e1ec81af6d" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="f64bd4e1-0375-4280-9741-660cdde54ff3">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="c760f1aa-1623-493f-9a5d-a08f8be50885">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  <mark class="highlight-default">Key Characteristics</mark>
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">
+                  Latency and Throughput
+                </td>
+                <td id="mj;n" class="" style="width: 575.171875px">-</td>
+                <td id="|_VV" class="" style="width: 501px">-</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="0359beb6-ef52-49bc-abf6-cfcec6ce8b51" class=""></p>
+          <br />
+          <hr id="ea07c462-7e79-4edf-8ba0-f227e5fbaea6" />
+          <h2 id="457ceb17-5100-4195-b377-592a3fb249ca" class="">
+            <mark class="highlight-teal">Availability</mark>
+          </h2>
+          <h3 id="b6821785-4a36-47e9-bd18-3ddcfbcf7dee" class="">
+            <mark class="highlight-blue">Process</mark>
+          </h3>
+          <p id="94aa4b01-2550-487c-b5cc-ee5ec3755ed6" class="">
+            A program that is currently running on a machine. You should always
+            assume that any process may get terminated at any time in a
+            sufficiently large system.
+          </p>
+          <h3 id="8019f878-b0ab-4fde-9918-1a68fce4d416" class="">
+            <mark class="highlight-blue">Server</mark>
+          </h3>
+          <p id="a83b001c-7fe5-4853-b4bf-449590b2c33c" class="">
+            A machine or process that provides data or service for a client,
+            usually by listening for incoming network calls.
+          </p>
+          <p id="3b652af6-7f35-44c4-8185-7c643442bbf4" class="">
+            Note that a single machine or piece of software can be both a client
+            and a server at the same time. For instance, a single machine could
+            act as a server for end users and as a client for a database.
+          </p>
+          <h3 id="89f334c2-1820-410f-8c69-77a661ed8074" class="">
+            <mark class="highlight-blue">Node/Instance/Host</mark>
+          </h3>
+          <p id="efce4046-a5d3-44a2-a05f-683f305f0909" class="">
+            These three terms refer to the same thing most of the time: a
+            virtual or physical machine on which the developer runs processes.
+            Sometimes the word server also refers to this same concept.
+          </p>
+          <h3 id="f8652208-dd0b-4679-bc30-ffb4dffe3e64" class="">
+            <mark class="highlight-blue">Availability</mark>
+          </h3>
+          <p id="cfe2655e-ce52-4ece-98f9-ae83eb76f866" class="">
+            The odds of a particular server or service being up and running at
+            any point in time, usually measured in percentages. A server that
+            has 99% availability will be operational 99% of the time (this would
+            be described as having two nines of availability).
+          </p>
+          <p id="9b9484d9-8bee-4d17-8617-bf076e783b71" class="">
+            System fault tolerance
+          </p>
+          <h3 id="e9534430-cdeb-4eb3-b8ac-7e0edf9b6482" class="">
+            <mark class="highlight-blue">High Availability</mark>
+          </h3>
+          <p id="3499c202-052e-48b8-aa28-50fd30845f53" class="">
+            &quot;HA&quot;.
+          </p>
+          <p id="1bed49fb-ae5a-4c5d-9550-18f53c52ae81" class="">
+            Used to describe systems that have particularly high levels of
+            availability, typically 5 nines or more; sometimes abbreviated
+          </p>
+          <h3 id="aa96d211-69cf-4c4d-a68c-47f84ae79c1d" class="">
+            <mark class="highlight-blue">Nines</mark>
+          </h3>
+          <p id="d6703da3-f437-4a1c-8d09-46dff66d19dd" class="">
+            Typically refers to percentages of uptime. For example, 5 nines of
+            availability means an uptime of 99.999% of the time.
+          </p>
+          <p id="4192fede-bbd1-4d6a-b604-b8a8764876db" class="">
+            Below are the downtimes expected per year depending on those 9s:
+          </p>
+          <ul id="1f82c6f6-89f2-496a-94bd-4d7274158873" class="bulleted-list">
+            <li style="list-style-type: disc">99% (two 9s): 87.7 hours</li>
+          </ul>
+          <ul id="0495424f-4a49-48bd-bf25-f7e16294e55b" class="bulleted-list">
+            <li style="list-style-type: disc">99.9% (three 9s): 8.8 hours</li>
+          </ul>
+          <ul id="85c5b260-bd6b-4987-8c09-9e615e092b0b" class="bulleted-list">
+            <li style="list-style-type: disc">99.99%: 52.6 minutes</li>
+          </ul>
+          <ul id="568bd45a-b2f3-49e9-8b06-d68b81cb404f" class="bulleted-list">
+            <li style="list-style-type: disc">99.999%： 5.3 minutes</li>
+          </ul>
+          <p id="7a8a5981-0762-4863-8e36-589a182c5777" class="">
+            Handle single point of failure
+          </p>
+          <h3 id="819b17c1-a91a-408c-8668-fda50d9ddd0d" class="">
+            <mark class="highlight-blue">Redundancy</mark>
+          </h3>
+          <p id="3007aece-4c7a-4212-8934-5b577fab4973" class="">
+            The process of replicating parts of a system in an effort to make it
+            more reliable.
+          </p>
+          <p id="e203fac9-5141-4b34-9859-c586924693fb" class="">
+            passive redundancy:  having multiple redundancy to handle
+          </p>
+          <p id="574ecef9-dee8-42a5-a9c2-ae2e0d58df84" class="">
+            Active redundancy: if one machine failed other machines to pick
+            failed machine duties.
+          </p>
+          <h3 id="36630607-0b0d-4132-83b0-b92aace804ac" class="">
+            <mark class="highlight-blue">SLA</mark>
+          </h3>
+          <p id="f85dcf26-5138-4b7a-96bc-42fb5bcbeac6" class="">
+            Short for &quot;service-level agreement&quot;, an SLA is a
+            collection of guarantees given to a customer by a service provider.
+            SLAs typically make guarantees on a system&#x27;s availability,
+            amongst other things. SLAs are made up of one or multiple SLOs.
+          </p>
+          <h3 id="0a6e3b02-efca-4b54-afd3-b259623bef36" class="">
+            <mark class="highlight-blue">SLO</mark>
+          </h3>
+          <p id="3e799122-7cd6-4020-8449-f7e5843b1bb5" class="">
+            Short for &quot;service-level objective&quot;, an SLO is a guarantee
+            given to a customer by a service provider. SLOs typically make
+            guarantees on a system&#x27;s availability, amongst other things.
+            SLOs constitute an SLA.
+          </p>
+          <p id="ffd3500e-c77f-4833-9e7f-5c4aa09f9561" class="">
+            Based on SLA we check how important is availability
+          </p>
+          <h3 id="2e93e984-39e6-4722-87c6-ada9f11a709f" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="8c0abf3e-ce71-4324-ba1b-30dd876b4a47" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="19cc873e-01a6-4545-b37d-211b9a33a028">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="7a5ce2c4-277b-4fc3-8933-082ba6c04c27">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  <mark class="highlight-default">Key Characteristics</mark>
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">
+                  Availability
+                </td>
+                <td id="mj;n" class="" style="width: 575.171875px">
+                  High Availability, Nines, Redundancy, SLA, SLO, ZooKeeper
+                </td>
+                <td id="|_VV" class="" style="width: 501px">-</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="3a057e1d-5b33-4994-95e1-56276d5a8b01" class=""></p>
+          <br />
+          <hr id="d355af1a-38c6-450b-b6af-8f7a9eb07f1d" />
+          <h2 id="4ad532ed-9cfb-464a-a9cb-c838f3227bd7" class="">
+            <mark class="highlight-teal">Proxy</mark>
+          </h2>
+          <h3 id="a57d56c0-4983-4cb1-b2c7-0d5971145be1" class="">
+            <mark class="highlight-blue">Forward Proxy</mark>
+          </h3>
+          <p id="b97c9295-5a53-453f-8fa6-e9d67e152e9d" class="">
+            A server that sits between a client and servers and acts on behalf
+            of the client, typically used to mask the client&#x27;s identity (IP
+            address). Note that forward proxies are often referred to as just
+            proxies.
+          </p>
+          <h3 id="c0741aa5-cb86-4890-af40-25f2af8aae18" class="">
+            <mark class="highlight-blue">Reverse Proxy</mark>
+          </h3>
+          <p id="85ff449d-b3f3-46e6-87e7-e7dcb20f95ac" class="">
+            A server that sits between clients and servers and acts on behalf of
+            the servers, typically used for logging, load balancing or caching.
+          </p>
+          <h3 id="d7e9a50d-64e0-42af-bf49-bd0d87eb4323" class="">
+            <mark class="highlight-blue">Nginx</mark>
+          </h3>
+          <p id="dee38e3a-f003-4176-9271-b5d4a6686c6b" class="">
+            Nginx is a very popular web server that&#x27;s often used as a
+            reverse proxy and load balancer.
+          </p>
+          <h3 id="175b5042-770a-4981-8fe6-e410d47e09fa" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="9eec2e7a-5896-493a-a3e2-0b778f837ec6" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="e85b0ea9-ea90-4081-98f3-c87faea8dacc">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="c39a78ba-7924-4f20-90f0-2e4ec94db8ce">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  <mark class="highlight-default">Key Characteristics</mark>
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">Proxy</td>
+                <td id="mj;n" class="" style="width: 575.171875px">
+                  Forward Proxy, Reverse Proxy
+                </td>
+                <td id="|_VV" class="" style="width: 501px">
+                  Nginx, Load balancers
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="775ff0ed-fa0b-4adb-be2c-e32d11b7535b" class=""></p>
+          <br />
+          <hr id="b9b035d8-dd71-4ee3-8c29-7aa2e3e35a2b" />
+          <h2 id="5e8d25ec-17ee-4a39-8308-8d22c447b752" class="">
+            <mark class="highlight-teal">Lead Election</mark>
+          </h2>
+          <p id="3d07e168-af5a-423d-9cf6-f052d998a2f3" class="">
+            The process by which nodes in a cluster (for instance, servers in a
+            set of servers) elect a so-called &quot;leader&quot; amongst them,
+            responsible for the primary operations of the service that these
+            nodes support. When correctly implemented, leader election
+            guarantees that all nodes in the cluster now which one is the leader
+            at any given time and can elect a new leader if the leader dies for
+            whatever reason.
+          </p>
+          <h3 id="da432e84-92f8-41c1-915d-6bf99127b050" class="">
+            <mark class="highlight-blue">Consensus Algorithm</mark>
+          </h3>
+          <p id="2fd0c5b7-4d06-4451-b357-1e4b999ad97a" class="">
+            A type of complex algorithms used to have multiple entities agree on
+            a single data value, like who the &quot;leader&quot; is amongst a
+            group of machines. Two popular consensus algorithms are Paxos and
+            Raft.
+          </p>
+          <h3 id="27ab0c48-330e-47bd-988c-d8870f118765" class="">
+            <mark class="highlight-blue">Paxos &amp; Raft</mark>
+          </h3>
+          <p id="493c4f4c-cd59-4ee0-b589-35278ce51b59" class="">
+            Two consensus algorithms that, when implemented correctly, allow for
+            the synchronization of certain operations, even in a distributed
+            setting.
+          </p>
+          <h3 id="7640fcca-f1d6-4f34-a09a-d0a04acaa3c2" class="">
+            <mark class="highlight-blue">Etcd</mark>
+          </h3>
+          <p id="a322110f-a63e-413d-b909-a0637371bb16" class="">
+            Etcd is a strongly consistent and highly available key-value store
+            that&#x27;s often used to implement leader election in a system.
+          </p>
+          <p id="0725553e-43bb-4e8b-8e4d-ec9eadbc8621" class="">
+            Learn more: <a href="https://etcd.io/">https://etcd.io/</a>
+          </p>
+          <h3 id="6cfc6f6a-f36d-41d6-b437-7c58a6eb3f38" class="">
+            <mark class="highlight-blue">ZooKeeper</mark>
+          </h3>
+          <p id="9a27f90c-7cbc-4cad-971f-b43de19ad30d" class="">
+            ZooKeeper is a strongly consistent, highly available key-value
+            store. It&#x27;s often used to store important configuration or to
+            perform leader election.
+          </p>
+          <p id="3c891fe8-d915-4956-b58d-f30cd1c8ea89" class="">
+            Learn more: https://zookeeper.apache.org/
+          </p>
+          <h3 id="005d319d-d3f9-4db9-aa17-66a3bd7e2d3c" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="49c4d96a-3615-4981-aa4a-2e702c3b6a77" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="23ead07b-a2d3-4319-8b38-adb24bfce7c1">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="dbfb9eb2-bb26-45e4-9dbf-d8b153a71bd7">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  <mark class="highlight-default">Key Characteristics</mark>
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">
+                  Lead Election
+                </td>
+                <td id="mj;n" class="" style="width: 575.171875px">
+                  (Consensus Algorithms: Paxos, Raft)
+                </td>
+                <td id="|_VV" class="" style="width: 501px">Zookeeper, Etcd</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="23ea90ec-a538-4a32-8c0c-c4acf1295c39" class=""></p>
+          <br />
+          <hr id="d3645b6b-e11e-4007-b524-b485823f8dd1" />
+          <h2 id="3d07725d-6235-4b90-b559-1bc3e428c49d" class="">
+            <mark class="highlight-teal">Load Balancer</mark>
+          </h2>
+          <p id="1d257499-bfb6-423d-975a-170a450d0232" class="">
+            A type of reverse proxy that distributes traffic across servers.
+            Load balancers can be found in many parts of a system, from the DNS
+            layer all the way to the database layer.
+          </p>
+          <h3 id="f1988c2e-3b18-4c8d-a6e3-ba0a37407805" class="">
+            <mark class="highlight-blue">Server-Selection Strategy</mark>
+          </h3>
+          <p id="0ee10cd8-c875-4921-8e0c-1e1103b3c505" class="">
+            How a load balancer chooses servers when distributing traffic
+            amongst multiple servers. Commonly used strategies include
+            round-robin, random selection, performance based selection (choosing
+            the server with the best performance metrics, like the fastest
+            response time or the least amount of traffic), and IP-based routing.
+          </p>
+          <p id="0cd889e6-5dae-40e6-9022-99d2f19a8048" class="">
+            Server selection load balancers<br />Weighted round robin<br />Distributed
+            trafic load balance<br />IP based load balancing (this may be useful
+            to redirect same client to one server so in that we server can have
+            cached)<br />Path based server selection load balancer<br />
+          </p>
+          <p id="a8e62dea-ac59-4ca7-b66c-b7bbca77ece9" class="">
+            We can use multiple load balancers in a system,<br />For overload of
+            load balancer we in scale horizontal same as server<br />
+          </p>
+          <h3 id="fa18e8a3-8827-40b6-ad30-aa74a5f1f033" class="">
+            <mark class="highlight-blue">Hot Spot</mark>
+          </h3>
+          <p id="dabb8b80-91f3-4075-8505-78f87a303322" class="">
+            When distributing a workload across a set of servers, that workload
+            might be spread unevenly. This can happen if your sharding key or
+            your hashing function are suboptimal, or if your workload is
+            naturally skewed: some servers will receive a lot more traffic than
+            others, thus creating a &quot;hot spot.&quot;
+          </p>
+          <h3 id="f31dc5c0-2b10-431d-b78f-750f25836793" class="">
+            <mark class="highlight-blue">Nginx</mark>
+          </h3>
+          <p id="d2243ab7-3250-44f2-9db9-26d623219aab" class="">
+            Pronounced &quot;engine X&quot;-not &quot;N jinx&quot;, Nginx is a
+            very popular webserver that&#x27;s often used as a reverse proxy and
+            load balancer.
+          </p>
+          <h3 id="741114a3-00f7-471c-81eb-fd0ad8c8da7f" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="a586c22d-70a9-4da9-b08d-01de0df6af93" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="aafe3206-bc09-49d1-9577-9bc7969768fb">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="e12f0400-5557-4bce-801f-525638a9d7ef">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  <mark class="highlight-default">Key Characteristics</mark>
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">
+                  Load Balancer
+                </td>
+                <td id="mj;n" class="" style="width: 575.171875px">
+                  Server-Selection Strategy, Hot Spot
+                </td>
+                <td id="|_VV" class="" style="width: 501px">-</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="3b867a07-f149-441f-8869-9a4f6ba6eca5" class=""></p>
+          <br />
+          <hr id="afc3e323-e338-4419-bf17-6673f6cc011a" />
+          <h2 id="9e0ef201-c578-4454-a819-48592cdd76b9" class="">
+            <mark class="highlight-teal">Rate Limiting</mark>
+          </h2>
+          <p id="1d50576c-0217-44be-882f-1df04b9b4383" class="">
+            The act of limiting the number of requests sent to or from a system.
+            Rate limiting is most often used to limit the number of incoming
+            requests in order to prevent DoS attacks and can be enforced at the
+            IP-address level, at the user account level, or at the region level,
+            for example. Rate limiting can also be implemented in tiers; for
+            instance, a type of network request could be limited to 1 per
+            second, 5 per 10 seconds, and 10 per minute.
+          </p>
+          <h3 id="5e7772f5-01c9-4973-880d-c0aa733c52b9" class="">
+            <mark class="highlight-blue">Availability</mark>
+          </h3>
+          <p id="0df127f5-9467-4d74-8e10-0770878afd43" class="">
+            The odds of a particular server or service being up and running at
+            any point in time, usually measured in percentages. A server that
+            has 99% availability will be operational 99% of the time (this would
+            be described as having two nines of availability).
+          </p>
+          <h3 id="89276e16-20b0-4597-9fdd-5ddd175924a5" class="">
+            <mark class="highlight-blue">Key-Value Store</mark>
+          </h3>
+          <p id="bd103a55-2535-468e-9718-2a133ceee40a" class="">
+            A Key-Value Store is a flexible NoSQL database that&#x27;s often
+            used for caching and dynamic configuration. Popular options include
+            DynamoDB, Eted, Redis, and ZooKeeper.
+          </p>
+          <h3 id="33228cb9-071c-4ebb-b0be-0332ab2d909d" class="">
+            <mark class="highlight-blue">DoS Attack</mark>
+          </h3>
+          <p id="433521ee-83ed-4ddc-8be7-739e088b65b7" class="">
+            Short for &quot;denial-of-service attack&quot;, a Dos attack is an
+            attack in which a malicious user tries to bring down or damage a
+            system in order to render it unavailable to users. Much of the time,
+            it consists of flooding it with traffic. Some DoS attacks are easily
+            preventable with rate limiting, while others can be far trickier to
+            defend against.
+          </p>
+          <h3 id="0cce71b1-1489-48ae-aac1-3305cf40f2c7" class="">
+            <mark class="highlight-blue">DDoS Attack</mark>
+          </h3>
+          <p id="e6289929-774c-4fc3-80b2-340e6666fcd0" class="">
+            Short for &quot;distributed denial-of-service attack&quot;, a DDoS
+            attack is a Dos attack in which the traffic flooding the target
+            system comes from many different sources (like thousands of
+            machines), making it much harder to defend against.
+          </p>
+          <h3 id="4db3288e-2af0-4b22-bd0e-0d7ef4ee40a3" class="">
+            <mark class="highlight-blue">Redis</mark>
+          </h3>
+          <p id="1406d1f3-ec82-417b-81d4-c7e87d111bbf" class="">
+            An in-memory key-value store. Does offer some persistent storage
+            options but is typically used as a really fast, best-effort caching
+            solution. Redis is also often used to implement rate limiting.
+          </p>
+          <p id="27ac25da-dc81-4085-b99e-b8bd1a3cb902" class="">
+            Learn more: https//<a href="http://redis.io/">redis.io/</a>
+          </p>
+          <h3 id="45ab9c97-5237-4f91-a17b-da62b47996b5" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="744ae66d-dac6-4871-ba24-840279966fd1" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="1122ebdc-3419-4da9-9dac-e51e23c22725">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="af56409a-b1ed-44dd-8c67-eb2a24f1b0b2">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  <mark class="highlight-default">Key Characteristics</mark>
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">
+                  Rate Limiting
+                </td>
+                <td id="mj;n" class="" style="width: 575.171875px">
+                  Rate Limiting, DoS Attack, DDoS Attack
+                </td>
+                <td id="|_VV" class="" style="width: 501px">-</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="6689cea0-9f44-46b3-8535-5b75896ce181" class=""></p>
+          <br />
+          <hr id="e9667ddc-555d-42b7-bc2e-14241431b2d8" />
+          <h2 id="630fc1e3-0b8f-4765-a085-e90feacfb157" class="">
+            <mark class="highlight-teal">Replication and Sharding</mark>
+          </h2>
+          <h3 id="7ee9a2e1-210c-44d7-8824-018fc4670cdb" class="">
+            <mark class="highlight-blue">Replication</mark>
+          </h3>
+          <p id="5e37ec7e-f0a1-41c4-bfd7-dfc150ddd14c" class="">
+            The act of duplicating the data from one database server to others.
+            This is sometimes used to increase the redundancy of your system and
+            tolerate regional failures for instance. Other times you can use
+            replication to move data closer to your clients, thus decreasing the
+            latency of accessing specific data.
+          </p>
+          <h3 id="22585174-d986-4330-b2e7-02ac1fd7ad71" class="">
+            <mark class="highlight-blue">Sharding</mark>
+          </h3>
+          <p id="6bf0f161-a0c2-426f-9c3e-d2e2b96bdaa9" class="">
+            Sometimes called data partitioning, sharding is the act of splitting
+            a database into two or more pieces called shards and is typically
+            done to increase the throughput of your database. Popular sharding
+            strategies include:
+          </p>
+          <ul id="2b60a1ac-9051-42b3-851c-1bce2a393d2e" class="bulleted-list">
+            <li style="list-style-type: disc">
+              Sharding based on a client&#x27;s region
+            </li>
+          </ul>
+          <ul id="5a39cbd3-8b13-4d76-acb0-2e28df6ce4f4" class="bulleted-list">
+            <li style="list-style-type: disc">
+              Sharding based on the type of data being stored (eg. user data
+              gets stored in one shard, payments data gets stored in another
+              shard)
+            </li>
+          </ul>
+          <ul id="23d402e2-0fe1-4338-bb89-85ae0bce8f28" class="bulleted-list">
+            <li style="list-style-type: disc">
+              Sharding based on the hash of a column (only for structured data)
+            </li>
+          </ul>
+          <h3 id="1843602b-ab49-44aa-85ba-b6f228d2dfa2" class="">
+            <mark class="highlight-blue">Hot Spot</mark>
+          </h3>
+          <p id="5292d65c-fbd4-4623-a4d2-9befd34bdb45" class="">
+            When distributing a workload across a set of servers, that workload
+            might be spread unevenly. This can happen if your sharding key or
+            your hashing function are suboptimal, or if your workload is
+            naturally skewed; some servers will receive a lot more traffic than
+            others, thus creating a &quot;hot spot&quot;.
+          </p>
+          <h3 id="26cf4d8a-21f1-40c8-b7d9-9b62a7279e1d" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="e2485a00-f5d4-4fbe-9f35-334bb9af4d5f" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="d05b93a4-b14d-4d5e-ae50-77813b05c9e6">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="9f4f0cf1-3ac5-4321-9b2f-81b76febee4a">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  <mark class="highlight-default">Key Characteristics</mark>
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">
+                  Replication and Sharding
+                </td>
+                <td id="mj;n" class="" style="width: 575.171875px">
+                  Replication, Sharding
+                </td>
+                <td id="|_VV" class="" style="width: 501px">Database</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="f6339c4d-0248-4347-95c1-8d54266d46eb" class=""></p>
+          <br />
+          <hr id="f76dc04b-aaea-41e9-b9c5-db4e3d639cb8" />
+          <h2 id="a02b40d7-bd17-4a67-a1ab-43277d4df3ed" class="">
+            <mark class="highlight-teal">Polling and Streaming</mark>
+          </h2>
+          <h3 id="068d38d6-818b-4c6b-a162-3e15a4bb1964" class="">
+            <mark class="highlight-blue">Polling</mark>
+          </h3>
+          <p id="c1c45c72-d070-4a63-9719-cb9196d79551" class="">
+            The act of fetching a resource or piece of data regularly at an
+            interval to make sure your data is not too stale.
+          </p>
+          <h3 id="1c393bcb-847c-4b9a-99f1-bc22e4c80b9c" class="">
+            <mark class="highlight-blue">Socket</mark>
+          </h3>
+          <p id="82c4b215-1e96-4803-97ce-9eb37489dd06" class="">
+            A kind of file that acts like a stream. Processes can read and write
+            to sockets and communicate in this manner. Most of the time the
+            sockets are fronts for TCP connection.
+          </p>
+          <h3 id="455d3585-7c47-433e-b4e2-49604f50e0f7" class="">
+            <mark class="highlight-blue">Streaming</mark>
+          </h3>
+          <p id="f6186e8e-f8b8-46a2-9157-22e313fa412f" class="">
+            In networking, it usually refers to the act of continuously getting
+            a feed of information from a server by keeping an open connection
+            between the two machines or processes.
+          </p>
+          <h3 id="6c296cc2-f915-4a5b-a9ee-b3b246d7018e" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="8316d746-ce3f-4da4-b275-b95151b04a94" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="9e969ed5-bb29-4243-ac09-1e341e6cdeaf">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="2b314c0f-34b7-4ba4-8f22-286e6fac1526">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  <mark class="highlight-default">Key Characteristics</mark>
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">
+                  Polling and Streaming
+                </td>
+                <td id="mj;n" class="" style="width: 575.171875px">
+                  Polling, Streaming
+                </td>
+                <td id="|_VV" class="" style="width: 501px">-</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="a56f16e2-207b-4a3d-82ed-6f2c1149c3ef" class=""></p>
+          <br />
+          <hr id="5a2164d3-5076-4cd6-8618-0655d07c55f3" />
+          <h2 id="c06fe457-9402-4e8e-a275-3d55789eea48" class="">
+            <mark class="highlight-teal">Publish/Subscribe Pattern</mark>
+          </h2>
+          <p id="5de7bab7-18e8-427b-8505-16c3b8412f9f" class="">
+            If we need persistent storage and rubust streaming systems we can
+            use public/subscribe model
+          </p>
+          <h3 id="40612065-3d27-407b-9112-4e080020d0f4" class="">
+            <mark class="highlight-blue">Persistent Storage</mark>
+          </h3>
+          <p id="0e74cf88-05dc-42c8-8fa5-6d13e4a1f65e" class="">
+            Usually refers to disk, but in general it is any form of storage
+            that persists if the process in charge of managing it dies.
+          </p>
+          <h3 id="fb179d97-e389-4b22-a84e-44df509e1b10" class="">
+            <mark class="highlight-blue">Publish/Subscribe Pattern</mark>
+          </h3>
+          <p id="072434a9-249d-4886-843d-e13625e04259" class="">
+            Often shortened as Pub/Sub, the Publish/Subscribe pattern is a
+            popular messaging model that consists of publishers and subscribers.
+            Publishers publish messages to special topics (sometimes called
+            channels) without caring about or even knowing who will read those
+            messages, and subscribers subscribe to topics and read messages
+            coming through those topics.<br />Pub/Sub systems often come with
+            very powerful guarantees like at-least-once delivery, persistent
+            storage, ordering of messages, and replayability of messages.<br />
+          </p>
+          <h3 id="ace64298-0846-4f48-a6e9-2f5a34c98336" class="">
+            <mark class="highlight-blue">Idempotent Operation</mark>
+          </h3>
+          <p id="89bd3d78-3c93-45a3-9938-ac2fef297f84" class="">
+            An operation that has the same ultimate outcome regardless of how
+            many times it&#x27;s performed. If an operation can be performed
+            multiple times without changing its overall effect, it&#x27;s
+            idempotent. Operations performed through a Pub/Sub messaging system
+            typically have to be idempotent, since Pub/Sub systems tend to allow
+            the same messages to be consumed multiple times.<br />For example,
+            increasing an integer value in a database is not an idempotent
+            operation, since repeating this operation will not have the same
+            effect as if it had been performed only once. Conversely, setting a
+            value to &quot;COMPLETE&quot; is an idempotent operation, since
+            repeating this operation will always yield the same result: the
+            value will be &quot;COMPLETE&quot;.<br />
+          </p>
+          <h3 id="ceb74ed5-0560-40ea-b4fb-2bc01953daba" class="">
+            <mark class="highlight-blue">Apache Kafka</mark>
+          </h3>
+          <p id="8762e20b-49c8-47f1-94fd-532cb4970aa4" class="">
+            A distributed messaging system created by Linkedin. Very useful when
+            using the streaming paradigm as opposed to polling.<br />Learn more:
+            <br /><a href="https://kafka.apache.org/"
+              >https://kafka.apache.org/</a
+            >
+          </p>
+          <h3 id="cb05c1e2-11f4-4875-b2cb-b85f35765e1e" class="">
+            <mark class="highlight-blue">Cloud Pub/Sub</mark>
+          </h3>
+          <p id="04b15dcc-7cec-4e2f-a894-7f02016b6678" class="">
+            A highly-scalable Pub/Sub messaging service created by Google.
+            Guarantees at-least-once delivery of messages and supports
+            &quot;rewinding&quot; in order to reprocess messages.<br />Learn
+            more: <br /><a href="https://cloud.google.com/pubsub/"
+              >https://cloud.google.com/pubsub/</a
+            >
+          </p>
+          <h3 id="74928945-40b8-48f7-802f-863e2950b16d" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="552f23b6-2a83-439c-bcf6-175a6156a8d8" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="61d1cd06-b03b-472e-950c-0c6b509a8654">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="ed287855-0185-412e-95b2-98c6788c855f">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  <mark class="highlight-default">Key Characteristics</mark>
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">
+                  Pub/Sub pattern
+                </td>
+                <td id="mj;n" class="" style="width: 575.171875px">
+                  Idempotent Operation
+                </td>
+                <td id="|_VV" class="" style="width: 501px">-</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="48198a1d-0756-4f40-9091-8b04c475a6f8" class=""></p>
+          <br />
+          <hr id="7d55ab59-f5cd-4745-9ff9-24106fd8aaf1" />
+          <h2 id="5d6ace06-20d6-4d9d-af48-1d82d1fa28ec" class="">
+            <mark class="highlight-teal">Hashing Functions</mark>
+          </h2>
+          <p id="b8ab835a-31e0-4028-826d-32ebc0602cb0" class="">
+            When server goes down or add one server we might get more cache
+            misses because of hash function to make it better we can use below
+            hashing functions.
+          </p>
+          <h3 id="e24a7e61-c34a-44c4-bc09-f99b1e1dffda" class="">
+            <mark class="highlight-blue">Hashing Function</mark>
+          </h3>
+          <p id="f89c3780-2541-4ca5-87e4-742de63d2df3" class="">
+            A function that takes in a specific data type (such as a string or
+            an identifier) and outputs a number. Different inputs may have the
+            same output, but a good hashing function attempts to minimize those
+            hashing collisions (which is equivalent to maximizing uniformity).
+          </p>
+          <h3 id="8220c69a-186a-4984-b21b-7ab4218ff34c" class="">
+            <mark class="highlight-blue">Load Balancer</mark>
+          </h3>
+          <p id="51344f7d-a2d1-4d2d-9366-705121bb3d41" class="">
+            A type of reverse proxy that distributes traffic across servers.
+            Load balancers can be found in many parts of a system, from the DNS
+            layer all the way to the database layer.
+          </p>
+          <h3 id="6d03f7f5-8e33-46c5-bf57-46f2d85c9c6b" class="">
+            <mark class="highlight-blue">Consistent Hashing</mark>
+          </h3>
+          <p id="c93ff462-75db-4027-9ba0-97b1957c3c2f" class="">
+            A type of hashing that minimizes the number of keys that need to be
+            remapped when a hash table gets resized. It&#x27;s often used by
+            load balancers to distribute traffic to servers; it minimizes the
+            number of requests that get forwarded to different servers when new
+            servers are added or when existing servers are brought down.
+          </p>
+          <h3 id="ac8ecf8b-ef07-4ea3-a33c-a1d8becc6837" class="">
+            <mark class="highlight-blue">Rendezvous Hashing</mark>
+          </h3>
+          <p id="dbba223d-cdcd-4b14-8d82-c7f577b79e62" class="">
+            A type of hashing also coined highest random weight hashing. Allows
+            for minimal re-distribution of mappings when a server goes down.
+          </p>
+          <h3 id="47494b39-5f8f-4c76-b5f9-6759efb5a6ee" class="">
+            <mark class="highlight-blue">SHA</mark>
+          </h3>
+          <p id="b541ccfe-31b5-450d-aaf9-4f842efcb780" class="">
+            Short for &quot;Secure Hash Algorithms&quot;, the SHA is a
+            collection of cryptographic hash functions used in the industry.
+            These days, SHA-3 is a popular choice to use in a system.
+          </p>
+          <p id="8c480bf3-bad4-41f2-af20-518d800ad100" class="">
+            MD5 hashing algorithm<br />SHA-1 hashing algorithm<br />BCrypt
+            hashing function<br />
+          </p>
+          <h3 id="9a0f5a31-0ad7-4ce0-a31d-c9502bb1ee4b" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="f6454890-1673-49cb-9278-bf296c577070" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="7700b5fc-3aaa-4870-8001-c9a5c5506054">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="107c51d4-730a-42fc-a842-7fe2fed01939">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  <mark class="highlight-default">Key Characteristics</mark>
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">Hashing</td>
+                <td id="mj;n" class="" style="width: 575.171875px">
+                  Consistent Hashing, Rendezvous Hashing, MD5, SHA-1, BCrypt
+                </td>
+                <td id="|_VV" class="" style="width: 501px">-</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="54bbbd70-cc60-48cc-bf82-67448eccd599" class=""></p>
+          <br />
+          <hr id="a8051f97-8068-44ed-a263-6101dbccb5b0" />
+          <h2 id="bbad74a1-a981-4f15-819a-6acc7c09dd07" class="">
+            <mark class="highlight-teal">Configuration</mark>
+          </h2>
+          <h3 id="6a45eda4-58a7-4352-8b87-e52d290eba47" class="">
+            <mark class="highlight-blue">Key-Value Store</mark>
+          </h3>
+          <p id="95cd27f4-078a-4949-97db-bbfbeaecaeb8" class="">
+            A Key-Value Store is a flexible NoSQL database that&#x27;s often
+            used for caching and dynamic configuration. Papular options include
+            DynamoDB, Etcd, Redis, and ZooKeeper.
+          </p>
+          <h3 id="aab3eb89-7996-4bbd-a30c-813fcf4659b9" class="">
+            <mark class="highlight-blue">Configuration</mark>
+          </h3>
+          <p id="9cc3fc84-48d5-4b7e-bc59-927c7a600b5c" class="">
+            A set of parameters or constants that are critical to a system.
+            Configuration is typically written in JSON or YAML and can be either
+            static, meaning that it&#x27;s hard-coded in and shipped with your
+            system&#x27;s application code (like frontend code, for instance),
+            or dynamic, meaning that it lives outside of your system&#x27;s
+            application code.
+          </p>
+          <h3 id="b51f599f-3290-4e44-a474-0ca4485cad1d" class="">
+            <mark class="highlight-blue">MindMap</mark>
+          </h3>
+          <table id="4bf55831-5bc5-4ea3-a749-30297287abaf" class="simple-table">
+            <thead class="simple-table-header">
+              <tr id="e18cccf5-37a8-4e80-a545-43724e332e6f">
+                <th
+                  id="vV\w"
+                  class="block-color-blue simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  Category
+                </th>
+                <th
+                  id=":FwC"
+                  class="block-color-blue simple-table-header"
+                  style="width: 180.15625px"
+                >
+                  Topics
+                </th>
+                <th
+                  id="mj;n"
+                  class="block-color-blue simple-table-header"
+                  style="width: 575.171875px"
+                >
+                  Components/Terms
+                </th>
+                <th
+                  id="|_VV"
+                  class="block-color-blue simple-table-header"
+                  style="width: 501px"
+                >
+                  Actual Tech
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="3e4bc68b-df38-4e6c-af41-5dfa75947393">
+                <th
+                  id="vV\w"
+                  class="simple-table-header-color simple-table-header"
+                  style="width: 218.21875px"
+                >
+                  <mark class="highlight-default">Key Characteristics</mark>
+                </th>
+                <td id=":FwC" class="" style="width: 180.15625px">
+                  Configuration
+                </td>
+                <td id="mj;n" class="" style="width: 575.171875px">
+                  Configuration Management
+                </td>
+                <td id="|_VV" class="" style="width: 501px">-</td>
+              </tr>
+            </tbody>
+          </table>
+          <p id="009a3b0f-833b-414f-9a50-0c0d8c03a773" class=""></p>
+          <br />
+          <hr id="2bd2f240-a015-4049-a9c7-7e9761c2144d" />
+          <p id="4179f4cd-ae12-4a7a-9257-0a2d8a1c6e25" class=""></p>
+        </div>
+      </article>
+      <span class="sans" style="font-size: 14px; padding-top: 2em"></span>
+    </body>
+  </div>
+</div>

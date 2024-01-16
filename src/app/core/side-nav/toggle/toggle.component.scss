@@ -1,0 +1,7 @@
+:host {
+    display: block;
+}
+
+::ng-deep app-toggle  ::ng-deep app-toggle {
+    transform: translateX(8px)
+}

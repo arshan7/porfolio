@@ -1,0 +1,13 @@
+/* src/app/resume/resume.component.css */
+.resume-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.resume,
+.skills {
+  width: 45%;
+}
+
+/* Add more styles as needed */
+

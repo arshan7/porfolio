@@ -1,0 +1,32 @@
+System Design Fundamentals:
+  - Foundational:
+      - Client-Server Model
+      - Network Protocols
+      - Security
+      - Peer-to-Peer Network
+      - Storage
+      - Relational
+      - Blob Storage
+      - Key-Value Store
+      - Time Series Database
+      - Graph Data
+      - Spatial Database
+      - Cache
+      - MapReduce
+      - API Design
+      - Monitoring and Alerts
+  - Key Characteristics:
+      - Latency:
+          - Latency2
+          - Latency3
+      - Throughput
+      - Availability
+      - Proxy
+      - Lead Election
+      - Load Balancer
+      - Rate Limiting
+      - Hashing Functions
+      - Configuration
+      - Replication and Sharding
+      - Polling and Streaming
+      - Publish/Subscribe Pattern
