@@ -80,3 +80,7 @@ ul li:hover > ul {
   margin-top: 20px; /* Adjust as needed */
   margin-left: 300px;
 }
+
+.scroll-margin {
+  scroll-margin-top: 102px;
+}

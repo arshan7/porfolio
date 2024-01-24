@@ -1,232 +1,226 @@
-
 .header {
-    background: linear-gradient(to right, #ffffff, #ffffff); /* Gradient from White to Light Gray */
-    padding: 0px 13px;
-    color: #3f51b5; /* Deep Purple */
-    display: flex;
-    grid-template-columns: auto 1px auto;
-    align-items: center;
-    position: fixed;
-    border-style: groove;
-    border-width: thin;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .logo {
-    width: 89px;
-    height: 55px;
-    margin-right: -84px;
-    margin-top: 1px;
-  
-  }
-  .logo img {
-    width: 130px;
-    height: 50px;
+  background: linear-gradient(
+    to right,
+    #ffffff,
+    #ffffff
+  ); /* Gradient from White to Light Gray */
+  padding: 0px 13px;
+  color: #3f51b5; /* Deep Purple */
+  display: flex;
+  grid-template-columns: auto 1px auto;
+  align-items: center;
+  position: fixed;
+  top: 1px;
+  border-style: groove;
+  border-width: thin;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-  
-  .vertical-line {
-    background-color: #3f51b5;
-    width: -49px;
-    height: 40px;
-    margin-left: 131px;
-    margin-right: 15px;
-  }
-  
+
+.logo {
+  width: 89px;
+  height: 55px;
+  margin-right: -84px;
+  margin-top: 1px;
+}
+.logo img {
+  width: 130px;
+  height: 50px;
+}
+
+.vertical-line {
+  background-color: #3f51b5;
+  width: -49px;
+  height: 40px;
+  margin-left: 131px;
+  margin-right: 15px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+}
+
+.company-info {
+  margin-right: 687px;
+}
+
+.company-name {
+  margin: 0;
+  font-weight: bold;
+  font-family: Mallory Book;
+  color: #062466;
+  font-size: 16px;
+}
+
+.company-description {
+  margin: 0;
+  font-size: 10px;
+  color: #565e64;
+}
+
+/* Navigation styling */
+nav ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+nav ul li {
+  margin-right: 97px;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333333;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #007bff;
+}
+
+/* Dropdown styling */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-button {
+  background: none;
+  border: none;
+  color: #333333;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.dropdown-button:hover {
+  color: #007bff;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  width: 200px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 20px;
+  color: #333333;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
   .header-content {
-    display: flex;
-    align-items: center;
-  }
-  
-  .company-info {
-    margin-right: 687px;
-  }
-  
-  .company-name {
-    margin: 0;
-    font-weight: bold;
-    font-family: Mallory Book;
-    color: #062466;
-    font-size: 16px;
-  }
-  
-  .company-description {
-    margin: 0;
-    font-size: 10px;
-    color: #565E64;
-  }
-  
-  /* Navigation styling */
-  nav ul {
-    display: flex;
-    list-style: none;
-    align-items: center;
-  }
-  
-  nav ul li {
-    margin-right: 97px;
-  }
-  
-  nav ul li:last-child {
-    margin-right: 0;
-  }
-  
-  nav ul li a {
-    text-decoration: none;
-    color: #333333;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-  
-  nav ul li a:hover {
-    color: #007bff;
-  }
-  
-  /* Dropdown styling */
-  .dropdown {
-    position: relative;
-  }
-  
-  .dropdown-button {
-    background: none;
-    border: none;
-    color: #333333;
-    cursor: pointer;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-  
-  .dropdown-button:hover {
-    color: #007bff;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #ffffff;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-    top: 100%;
-    left: 0;
-    width: 200px;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-  .dropdown-content a {
-    display: block;
-    padding: 10px 20px;
-    color: #333333;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
-  
-  .dropdown-content a:hover {
-    background-color: #f0f0f0;
-  }
-  
-  /* Media query for responsiveness */
-  @media screen and (max-width: 768px) {
-    .header-content {
-      flex-direction: column;
-      text-align: center;
-    }
-    
-    .vertical-line {
-      display: none;
-    }
-    
-    .dropdown-button {
-      margin-top: 10px;
-    }
-  }
-  
-  .empty-page {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f0f0f0;
+    flex-direction: column;
     text-align: center;
   }
-  
-  
-  
-  
-  
-  .header {
-    position: relative;
+
+  .vertical-line {
+    display: none;
   }
-  
-  .data-container {
-    background-color: white;
-    color: white;
-    padding: 5px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -30px;
-    border: 2px solid green;
+
+  .dropdown-button {
+    margin-top: 10px;
   }
-  
-  .data-text {
-    color: green;
-    font-size: 12px;
-    margin: 0;
+}
+
+.empty-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  text-align: center;
+}
+
+.data-container {
+  background-color: white;
+  color: white;
+  padding: 5px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -30px;
+  border: 2px solid green;
+}
+
+.data-text {
+  color: green;
+  font-size: 12px;
+  margin: 0;
+}
+
+.data-value {
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.bullet {
+  font-size: 3.5em; /* Adjust the font size to your preference */
+  line-height: 1.5em; /* Adjust the line height for vertical alignment */
+}
+
+/* Define classes for different bullet colors */
+.green-bullet {
+  color: green;
+}
+
+/* Apply animations and transitions to the blinking bullet */
+.blinking-bullet {
+  animation: blink 1s infinite;
+  transition: transform 1.5s ease-in-out;
+  font-size: 18px;
+}
+
+/* Hover effect: Move the bullet when hovering */
+.blinking-bullet:hover {
+  animation: move 1s infinite;
+}
+
+/* Keyframes animation for blinking */
+@keyframes blink {
+  0% {
+    opacity: 1;
   }
-  
-  .data-value {
-    font-weight: bold;
-    margin-left: 5px;
+  50% {
+    opacity: 0;
   }
-  
-  .bullet {
-    font-size: 3.5em; /* Adjust the font size to your preference */
-    line-height: 1.5em; /* Adjust the line height for vertical alignment */
+  100% {
+    opacity: 1;
   }
-  
-  /* Define classes for different bullet colors */
-  .green-bullet {
-    color: green;
+}
+
+/* Keyframes animation for moving */
+@keyframes move {
+  0% {
+    transform: translateX(0);
   }
-  
-  /* Apply animations and transitions to the blinking bullet */
-  .blinking-bullet {
-    animation: blink 1s infinite;
-    transition: transform 1.5s ease-in-out;
-    font-size: 18px;
+  50% {
+    transform: translateX(5px);
   }
-  
-  /* Hover effect: Move the bullet when hovering */
-  .blinking-bullet:hover {
-    animation: move 1s infinite;
+  100% {
+    transform: translateX(0);
   }
-  
-     /* Keyframes animation for blinking */
-     @keyframes blink {
-      0% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-    
-    /* Keyframes animation for moving */
-    @keyframes move {
-      0% {
-        transform: translateX(0);
-      }
-      50% {
-        transform: translateX(5px);
-      }
-      100% {
-        transform: translateX(0);
-      }
-    }
-  
+}

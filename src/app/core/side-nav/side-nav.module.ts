@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { LinkItemComponent } from './link-item/link-item.component';
 import { GetFirstKeyPipe } from '../Directives/GetKeyTransform';
 import { IsArrayPipe, IsObjectPipe } from '../Directives/isObjectTransform';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { IsArrayPipe, IsObjectPipe } from '../Directives/isObjectTransform';
     IsObjectPipe,
     IsArrayPipe,
   ],
-  imports: [CommonModule, MatIconModule],
+  imports: [CommonModule, MatIconModule, RouterModule],
   exports: [SideNavComponent, ToggleComponent],
 })
 export class SideNavModule {}

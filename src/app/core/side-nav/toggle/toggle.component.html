@@ -28,8 +28,13 @@
       </ng-container>
       <ng-container *ngIf="!(linkItem | isObject)">
         <div class="ml-4" *ngIf="isOpen && parentOpen">
-          <div class="ml-2">
-            <a class="block link cursor-pointer">{{ linkItem }}</a>
+          <div class="ml-">
+            <a
+              [ngClass]="{ 'active-link': currentFragment === linkItem }"
+              [href]="currentPath + '#' + linkItem"
+              class="block link cursor-pointer"
+              >{{ linkItem }}</a
+            >
           </div>
         </div>
       </ng-container>

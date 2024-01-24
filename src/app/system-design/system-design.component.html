@@ -1,56 +1,11 @@
-<div class="grid grid-cols-[300px_1fr] grid-rows-[60px_auto]">
-  <div class="tabs col-span-2">
-    <button
-      class="tab"
-      [ngClass]="{ active: isJobOverviewActive }"
-      style="cursor: pointer"
-      (click)="setActiveContent('jobOverview')"
-    >
-      System Design Fundamentals</button
-    >    <span class="separator">|</span>
-    <button
-      class="tab"
-      [ngClass]="{ active: isJobReportActive }"
-      style="cursor: pointer"
-      (click)="setActiveContent('jobReport')"
-    >
-      Code-Deployment System</button
-    >    <span class="separator">|</span>
-    <button
-      class="tab"
-      [ngClass]="{ active: isJobsActive }"
-      style="cursor: pointer"
-      (click)="setActiveContent('jobs')"
-    >
-      E-learning
-    </button>
-        <span class="separator">|</span>
-    <button
-      class="tab"
-      [ngClass]="{ active: isAgedIncidents }"
-      style="cursor: pointer"
-      (click)="setActiveContent('AgedIncidents')"
-    >
-      Stock Broker</button
-    >    <span class="separator">|</span>
-    <button
-      class="tab"
-      [ngClass]="{ active: isUnclosedChangeTickets }"
-      style="cursor: pointer"
-      (click)="setActiveContent('UnclosedChangeTickets')"
-    >
-      E-commerece
-    </button>
-
-    <hr style="display: flex;  border-bottom: 2px #062466" />
-  </div>
-  <div class="side-bar">
+<div class="pt-[102px]">
+  <div class="side-bar fixed">
     <app-side-nav
       [yamlPath]="'/assets/content/yaml/SystemDesign/system-design.yaml'"
     ></app-side-nav>
   </div>
 
-  <div class="container">
+  <div class="container ml-[240px] w-[calc(100%_-_240px)] px-4">
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <title>System Design Fundamentals</title>
@@ -1221,7 +1176,7 @@
           <p id="b548858f-cba9-4bff-b392-af88cd43e8ff" class=""></p>
           <br />
           <hr id="dd72a534-426e-480c-8153-2ecd4420e7cd" />
-          <h2 id="26152b90-3e6f-4980-abf5-d23ccff492c7" class="">
+          <h2 id="Client-Server Model" class="scroll-margin">
             <mark class="highlight-teal">Client Server Model</mark>
           </h2>
           <h3 id="3b495925-5751-4403-a1fb-3398aa7145f8" class="">
